@@ -1,0 +1,17 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore screenshots
+*.png
+
+# Ignore test servers
+test_servers
+
+# Ignore Intellij project files
+.idea
