@@ -12,3 +12,7 @@ end
 Then(/^login successfully$/) do
   wait_for_text "success"
 end
+
+Then(/^login failed$/) do
+  wait_for_text "failed"
+end
