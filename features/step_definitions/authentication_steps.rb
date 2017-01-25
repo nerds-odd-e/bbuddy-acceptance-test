@@ -10,7 +10,7 @@ When(/^login with user email "([^"]*)" and password "([^"]*)"$/) do |email, pass
 end
 
 Then(/^login successfully$/) do
-  wait_for_text "success"
+  wait_for_text "Accounts"
 end
 
 Then(/^login failed$/) do
