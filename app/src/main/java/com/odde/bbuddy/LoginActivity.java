@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -191,8 +192,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             new Authenticator(new Backend(getApplicationContext())).authenticate(new Credentials(email, password), new Consumer<String>() {
                 @Override
                 public void accept(String message) {
-                    setMessage(message);
-                    showProgress(false);
+                    if (message.equals("failed")) {
+                        setMessage(message);
+                        showProgress(false);
+                    } else
+                        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                 }
             });
         }
