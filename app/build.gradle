@@ -9,7 +9,6 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,14 +26,13 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
     compile 'com.android.volley:volley:1.0.0'
+    compile 'com.android.support:design:23.2.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
+
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.6.4'
-    compile 'com.android.support:design:23.2.0'
+    testCompile 'org.json:json:20140107'
 }

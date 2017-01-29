@@ -28,10 +28,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.odde.bbuddy.authentication.AuthenticationToken;
 import com.odde.bbuddy.authentication.Authenticator;
 import com.odde.bbuddy.authentication.Credentials;
-import com.odde.bbuddy.common.Backend;
 import com.odde.bbuddy.common.Consumer;
+import com.odde.bbuddy.common.JsonBackend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -189,7 +190,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            new Authenticator(new Backend(getApplicationContext())).authenticate(new Credentials(email, password), new Consumer<String>() {
+            new Authenticator(new JsonBackend(getApplicationContext()), new AuthenticationToken()).authenticate(new Credentials(email, password), new Consumer<String>() {
                 @Override
                 public void accept(String message) {
                     if (message.equals("failed")) {
