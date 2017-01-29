@@ -11,3 +11,12 @@ Feature: Accounts
       | name | balance brought forward |
       | CMB  | 1000                    |
       | HSBC | 0                       |
+
+  Scenario: add account
+    When add account as below
+      | name | balance brought forward |
+      | CMB  | 1000                    |
+    Then you will see all accounts as below
+      | name | balance brought forward |
+      | CMB  | 1000                    |
+
