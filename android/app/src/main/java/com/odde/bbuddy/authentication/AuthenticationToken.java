@@ -15,8 +15,9 @@ public class AuthenticationToken {
         updateTokenField(headers, "expiry");
     }
 
-    private String updateTokenField(Map<String, String> headers, String fieldName) {
-        return authenticationHeaders.put(fieldName, headers.get(fieldName));
+    private void updateTokenField(Map<String, String> headers, String fieldName) {
+        if (headers.get(fieldName) != null)
+            authenticationHeaders.put(fieldName, headers.get(fieldName));
     }
 
     public Map<String, String> getHeaders() {

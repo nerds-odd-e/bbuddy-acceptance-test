@@ -59,6 +59,8 @@ public class DashboardActivity extends AppCompatActivity implements TabLayout.On
                 startActivity(new Intent(getApplicationContext(), AddAccountActivity.class));
             }
         });
+
+        tabLayout.getTabAt(getIntent().getIntExtra("tabPosition", 0)).select();
     }
 
     @Override
