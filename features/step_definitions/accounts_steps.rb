@@ -16,6 +16,7 @@ When(/^add account as below$/) do |table|
 end
 
 Then(/^you will see all accounts as below$/) do |table|
+  wait_for_element_exists "* id:'tabLayout'"
   table.hashes.each do |account|
     wait_for_text account['name']
     wait_for_text account['balance brought forward']
