@@ -9,11 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatchers;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
-
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -26,8 +23,7 @@ import static org.mockito.Mockito.verify;
 public class AuthenticatorTest {
 
     JsonBackend mockBackend = mock(JsonBackend.class);
-    AuthenticationToken mockAuthenticationToken = mock(AuthenticationToken.class);
-    Authenticator authenticator = new Authenticator(mockBackend, mockAuthenticationToken);
+    Authenticator authenticator = new Authenticator(mockBackend);
     Credentials credentials = new Credentials("abc@gmail.com", "password");
     Consumer afterSuccess = mock(Consumer.class);
 
@@ -36,7 +32,7 @@ public class AuthenticatorTest {
         authenticate();
 
         ArgumentCaptor<JSONObject> captor = ArgumentCaptor.forClass(JSONObject.class);
-        verify(mockBackend).postRequestForJson(eq("/auth/sign_in"), captor.capture(), any(Consumer.class), any(Runnable.class), any(Consumer.class));
+        verify(mockBackend).postRequestForJson(eq("/auth/sign_in"), captor.capture(), any(Consumer.class), any(Runnable.class));
         assertEquals("abc@gmail.com", captor.getValue().getString("email"));
         assertEquals("password", captor.getValue().getString("password"));
     }
@@ -63,15 +59,6 @@ public class AuthenticatorTest {
         verify(afterSuccess).accept("failed");
     }
 
-    @Test
-    public void update_authentication_token() {
-        given_jsonbackend_will_response(success());
-
-        authenticate();
-
-        verify(mockAuthenticationToken).updateByHeaders(ArgumentMatchers.<String, String>anyMap());
-    }
-
     @NonNull
     private Answer failed() {
         return new Answer() {
@@ -85,7 +72,7 @@ public class AuthenticatorTest {
     }
 
     private void given_jsonbackend_will_response(Answer answer) {
-        doAnswer(answer).when(mockBackend).postRequestForJson(anyString(), any(JSONObject.class), any(Consumer.class), any(Runnable.class), any(Consumer.class));
+        doAnswer(answer).when(mockBackend).postRequestForJson(anyString(), any(JSONObject.class), any(Consumer.class), any(Runnable.class));
     }
 
     @NonNull
@@ -95,8 +82,6 @@ public class AuthenticatorTest {
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 Consumer consumer = invocation.getArgument(2);
                 consumer.accept(new JSONObject());
-                Consumer headerConsumer = invocation.getArgument(4);
-                headerConsumer.accept(new HashMap<>());
                 return null;
             }
         };

@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Account {
 
     private String name;
+
+    @JsonProperty("balance")
     private int balanceBroughtForward;
 
     @JsonCreator
