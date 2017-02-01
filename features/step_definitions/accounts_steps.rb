@@ -1,4 +1,7 @@
 Given(/^exists the following accounts$/) do |table|
+  table.hashes.each do |account|
+    Account.create(name: account['name'], balance: account['balance brought forward'])
+  end
 end
 
 When(/^show all accounts$/) do
