@@ -1,6 +1,8 @@
 Given(/^exists the following accounts$/) do |table|
   table.hashes.each do |account|
     Account.create(name: account['name'], balance: account['balance brought forward'])
+    @current_name = account['name']
+    @current_balance_brought_forward = account['balance brought forward']
   end
 end
 
@@ -16,6 +18,18 @@ When(/^add account as below$/) do |table|
     enter_text("* id:'balanceBroughtForward'", account['balance brought forward'])
     touch("* marked:'Confirm'")
   end
+end
+
+When(/^edit account as name "([^"]*)" and balance brought forward (\d+)$/) do |name, balance_brought_forward|
+  step 'show all accounts'
+  touch("* marked:'#{@current_name} #{@current_balance_brought_forward}'")
+  touch("* id:'name'")
+  clear_text("* id:'name'")
+  enter_text("* id:'name'", name)
+  touch("* id:'balanceBroughtForward'")
+  clear_text("* id:'balanceBroughtForward'")
+  enter_text("* id:'balanceBroughtForward'", balance_brought_forward)
+  touch("* marked:'Update'")
 end
 
 Then(/^you will see all accounts as below$/) do |table|

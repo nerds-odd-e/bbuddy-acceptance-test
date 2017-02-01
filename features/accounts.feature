@@ -20,3 +20,12 @@ Feature: Accounts
       | name | balance brought forward |
       | CMB  | 1000                    |
 
+  Scenario: edit account
+    Given exists the following accounts
+      | name | balance brought forward |
+      | CMB  | 1000                    |
+    When edit account as name "CMB" and balance brought forward 1000
+    Then you will see all accounts as below
+      | name | balance brought forward |
+      | CMB  | 1000                    |
+

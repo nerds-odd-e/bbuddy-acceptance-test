@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".AddAccountActivity"></activity>
+        <activity android:name=".AddAccountActivity" />
+        <activity android:name=".EditAccountActivity"></activity>
     </application>
 
 </manifest>

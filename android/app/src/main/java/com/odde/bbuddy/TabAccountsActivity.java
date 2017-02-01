@@ -1,9 +1,12 @@
 package com.odde.bbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ListFragment;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.odde.bbuddy.account.Account;
 import com.odde.bbuddy.account.Accounts;
@@ -20,6 +23,11 @@ public class TabAccountsActivity extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showAllAccounts();
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        startActivity(new Intent(getActivity(), EditAccountActivity.class));
     }
 
     private void showAllAccounts() {
