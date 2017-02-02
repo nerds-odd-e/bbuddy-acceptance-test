@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.odde.bbuddy.account.Account;
 
 public class EditAccountActivity extends AppCompatActivity {
 
@@ -12,6 +15,13 @@ public class EditAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
+
+        Account account = (Account) getIntent().getSerializableExtra("account");
+
+        EditText nameField = (EditText) findViewById(R.id.name);
+        nameField.setText(account.getName());
+        EditText balanceBroughtForwardField = (EditText) findViewById(R.id.balanceBroughtForward);
+        balanceBroughtForwardField.setText(String.valueOf(account.getBalanceBroughtForward()));
 
         Button updateButton = (Button) findViewById(R.id.update);
         updateButton.setOnClickListener(new View.OnClickListener() {
