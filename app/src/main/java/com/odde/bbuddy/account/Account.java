@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Account {
+public class Account implements Serializable {
 
     private String name;
 
@@ -26,4 +28,8 @@ public class Account {
         return balanceBroughtForward;
     }
 
+    @Override
+    public String toString() {
+        return name + " " + balanceBroughtForward;
+    }
 }
