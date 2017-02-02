@@ -1,6 +1,7 @@
 package com.odde.bbuddy.common;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -29,35 +30,12 @@ public class JsonBackend {
         requestQueue = newRequestQueue(context);
     }
 
-    public void postRequestForJson(
-            String action,
-            JSONObject request,
-            final Consumer<JSONObject> responseConsumer,
-            final Runnable afterError) {
-        requestQueue.add(new JsonObjectRequest(
-                Request.Method.POST, rootUrl + action, request,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        responseConsumer.accept(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        afterError.run();
-                    }
-                }){
-            @Override
-            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                authenticationToken.updateByHeaders(response.headers);
-                return super.parseNetworkResponse(response);
-            }
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return authenticationToken.getHeaders();
-            }
-        });
+    public void postRequestForJson(String action, JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
+        requestQueue.add(jsonObjectRequest(Request.Method.POST, action, request, responseConsumer, afterError));
+    }
+
+    public void putRequestForJson(String action, JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
+        requestQueue.add(jsonObjectRequest(Request.Method.PUT, action, request, responseConsumer, afterError));
     }
 
     public void getRequestForJsonArray(String action, final Consumer<JSONArray> responseConsumer) {
@@ -85,5 +63,33 @@ public class JsonBackend {
                 return super.parseNetworkResponse(response);
             }
         });
+    }
+
+    @NonNull
+    private JsonObjectRequest jsonObjectRequest(final int method, final String action, final JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
+        return new JsonObjectRequest(
+                method, rootUrl + action, request,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        responseConsumer.accept(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        afterError.run();
+                    }
+                }){
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                authenticationToken.updateByHeaders(response.headers);
+                return super.parseNetworkResponse(response);
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return authenticationToken.getHeaders();
+            }
+        };
     }
 }

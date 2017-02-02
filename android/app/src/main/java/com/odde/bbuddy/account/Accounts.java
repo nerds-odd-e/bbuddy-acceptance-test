@@ -62,4 +62,18 @@ public class Accounts {
             throw new IllegalStateException();
         }
     }
+
+    public void editAccount(Account account, final Runnable afterSuccess) {
+        jsonBackend.putRequestForJson("/accounts/" + account.getId(), jsonOf(account), new Consumer<JSONObject>() {
+            @Override
+            public void accept(JSONObject jsonObject) {
+                afterSuccess.run();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
 }

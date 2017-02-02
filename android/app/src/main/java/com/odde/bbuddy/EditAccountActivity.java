@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.odde.bbuddy.account.Account;
+import com.odde.bbuddy.account.Accounts;
+import com.odde.bbuddy.common.JsonBackend;
 
 public class EditAccountActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class EditAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
 
-        Account account = (Account) getIntent().getSerializableExtra("account");
+        final Account account = (Account) getIntent().getSerializableExtra("account");
 
         EditText nameField = (EditText) findViewById(R.id.name);
         nameField.setText(account.getName());
@@ -27,9 +29,18 @@ public class EditAccountActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-                intent.putExtra("tabPosition", 1);
-                startActivity(intent);
+                EditText nameField = (EditText) findViewById(R.id.name);
+                account.setName(nameField.getText().toString());
+                EditText balanceBroughtForwardField = (EditText) findViewById(R.id.balanceBroughtForward);
+                account.setBalanceBroughtForward(Integer.parseInt(balanceBroughtForwardField.getText().toString()));
+                new Accounts(new JsonBackend(getApplicationContext())).editAccount(account, new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                        intent.putExtra("tabPosition", 1);
+                        startActivity(intent);
+                    }
+                });
             }
         });
     }
