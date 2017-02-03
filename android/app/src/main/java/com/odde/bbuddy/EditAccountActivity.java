@@ -43,5 +43,20 @@ public class EditAccountActivity extends AppCompatActivity {
                 });
             }
         });
+
+        Button deleteButton = (Button) findViewById(R.id.delete);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Accounts(new JsonBackend(getApplicationContext())).deleteAccount(account, new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                        intent.putExtra("tabPosition", 1);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
     }
 }

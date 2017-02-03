@@ -32,6 +32,18 @@ When(/^edit account as name "([^"]*)" and balance brought forward (\d+)$/) do |n
   touch("* marked:'Update'")
 end
 
+When(/^delete this account$/) do
+  step 'show all accounts'
+  touch("* marked:'#{@current_name} #{@current_balance_brought_forward}'")
+  touch("* marked:'Delete'")
+end
+
+Then(/^you will not see it in the list$/) do
+  wait_for_element_exists "* id:'tabLayout'"
+  wait_for_element_does_not_exist("* {text CONTAINS[c] '#{@current_name}'}")
+  wait_for_element_does_not_exist("* {text CONTAINS[c] '#{@current_balance_brought_forward}'}")
+end
+
 Then(/^you will see all accounts as below$/) do |table|
   wait_for_element_exists "* id:'tabLayout'"
   table.hashes.each do |account|

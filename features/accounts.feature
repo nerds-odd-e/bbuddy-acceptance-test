@@ -29,3 +29,9 @@ Feature: Accounts
       | name            | balance brought forward |
       | another account | 2000                    |
 
+  Scenario: delete account
+    Given exists the following accounts
+      | name | balance brought forward |
+      | CMB  | 1000                    |
+    When delete this account
+    Then you will not see it in the list

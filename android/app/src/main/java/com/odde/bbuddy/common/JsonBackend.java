@@ -31,11 +31,15 @@ public class JsonBackend {
     }
 
     public void postRequestForJson(String action, JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
-        requestQueue.add(jsonObjectRequest(Request.Method.POST, action, request, responseConsumer, afterError));
+        addJsonRequestToQueue(Request.Method.POST, action, request, responseConsumer, afterError);
     }
 
     public void putRequestForJson(String action, JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
-        requestQueue.add(jsonObjectRequest(Request.Method.PUT, action, request, responseConsumer, afterError));
+        addJsonRequestToQueue(Request.Method.PUT, action, request, responseConsumer, afterError);
+    }
+
+    public void deleteRequestForJson(String action, Consumer<JSONObject> responseConsumer, Runnable afterError) {
+        addJsonRequestToQueue(Request.Method.DELETE, action, null, responseConsumer, afterError);
     }
 
     public void getRequestForJsonArray(String action, final Consumer<JSONArray> responseConsumer) {
@@ -63,6 +67,10 @@ public class JsonBackend {
                 return super.parseNetworkResponse(response);
             }
         });
+    }
+
+    private void addJsonRequestToQueue(int method, String action, JSONObject request, Consumer<JSONObject> responseConsumer, Runnable afterError) {
+        requestQueue.add(jsonObjectRequest(method, action, request, responseConsumer, afterError));
     }
 
     @NonNull
