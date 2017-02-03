@@ -1,5 +1,11 @@
+`RAILS_ENV=test rails s -d -p 4000`
+
+at_exit do
+  `kill -9 $(cat tmp/pids/server.pid)`
+end
+
 Before ('@login') do
-  RestClient.post("http://localhost:3000/auth",
+  RestClient.post("http://localhost:4000/auth",
                   {
                       "email" => 'joseph.yao.ruozhou@gmail.com',
                       "password" => '123456'

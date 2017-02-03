@@ -1,7 +1,7 @@
 require 'rest-client'
 
 Given(/^there is a user email "([^"]*)" and password is "([^"]*)"$/) do |email, password|
-  RestClient.post("http://localhost:3000/auth",
+  RestClient.post("http://localhost:4000/auth",
                   {
                       "email" => email,
                       "password" => password

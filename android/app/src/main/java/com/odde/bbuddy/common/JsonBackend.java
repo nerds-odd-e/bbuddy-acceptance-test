@@ -11,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.odde.bbuddy.BuildConfig;
 import com.odde.bbuddy.authentication.AuthenticationToken;
 
 import org.json.JSONArray;
@@ -23,7 +24,7 @@ import static com.android.volley.toolbox.Volley.newRequestQueue;
 public class JsonBackend {
 
     private final RequestQueue requestQueue;
-    private final String rootUrl = "http://10.0.3.2:3000";
+    private final String serverUrl = BuildConfig.SERVER_URL;
     private final AuthenticationToken authenticationToken = new AuthenticationToken();
 
     public JsonBackend(Context context) {
@@ -44,7 +45,7 @@ public class JsonBackend {
 
     public void getRequestForJsonArray(String action, final Consumer<JSONArray> responseConsumer) {
         requestQueue.add(new JsonArrayRequest(
-                Request.Method.GET, rootUrl + action, null,
+                Request.Method.GET, serverUrl + action, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -76,7 +77,7 @@ public class JsonBackend {
     @NonNull
     private JsonObjectRequest jsonObjectRequest(final int method, final String action, final JSONObject request, final Consumer<JSONObject> responseConsumer, final Runnable afterError) {
         return new JsonObjectRequest(
-                method, rootUrl + action, request,
+                method, serverUrl + action, request,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {

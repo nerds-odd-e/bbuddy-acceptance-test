@@ -58,8 +58,3 @@ ActionController::Base.allow_rescue = false
 
 require 'calabash-android/cucumber'
 
-`RAILS_ENV=test rails s -d`
-
-at_exit do
-  `kill -9 $(cat tmp/pids/server.pid)`
-end
