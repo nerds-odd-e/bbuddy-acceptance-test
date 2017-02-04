@@ -10,4 +10,8 @@ class DashboardPage < Calabash::ABase
     wait_for_elements_exist(trait)
   end
 
+  def go_to_accounts
+    touch("* marked:'Accounts'")
+  end
+
 end
