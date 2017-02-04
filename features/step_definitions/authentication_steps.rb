@@ -1,21 +1,15 @@
-require 'rest-client'
-
 Given(/^there is a user email "([^"]*)" and password is "([^"]*)"$/) do |email, password|
   create_user(email, password)
 end
 
 When(/^login with user email "([^"]*)" and password "([^"]*)"$/) do |email, password|
-  wait_for_element_exists "* id:'email'"
-  enter_text("* id:'email'", email)
-  wait_for_element_exists "* id:'password'"
-  enter_text("* id:'password'", password)
-  touch("* id:'email_sign_in_button'")
+  page(LoginPage).login(User.new(email, password))
 end
 
 Then(/^login successfully$/) do
-  wait_for_text "Accounts"
+  page(DashboardPage).assert_in_current_page
 end
 
 Then(/^login failed$/) do
-  wait_for_text "failed"
+  page(LoginPage).assert_login_failed
 end
