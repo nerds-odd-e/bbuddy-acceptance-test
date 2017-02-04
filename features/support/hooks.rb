@@ -1,7 +1,11 @@
-`RAILS_ENV=test rails s -d -p 4000`
+require_relative('../data/authentication')
+require_relative('../server/rails_server')
+require_relative('../data/database_cleaner')
+
+start_server
 
 at_exit do
-  `kill -9 $(cat tmp/pids/server.pid)`
+  stop_server
 end
 
 Before ('@login') do
