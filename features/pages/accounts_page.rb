@@ -12,20 +12,18 @@ class AccountsPage < Calabash::ABase
   end
 
   def go_to_edit_account(account)
-    name = account['name']
-    balance_brought_forward = account['balance brought forward']
-    touch("* marked:'#{name} #{balance_brought_forward}'")
+    touch("* marked:'#{account.name} #{account.balance}'")
     page(EditAccountPage)
   end
 
   def assert_account_not_exists(account)
-    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account['name']}'}")
-    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account['balance brought forward']}'}")
+    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account.name}'}")
+    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account.balance}'}")
   end
 
   def assert_account_exists(account)
-    wait_for_text account['name']
-    wait_for_text account['balance brought forward']
+    wait_for_text account.name
+    wait_for_text account.balance
   end
 
 end

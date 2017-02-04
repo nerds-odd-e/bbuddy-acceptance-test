@@ -7,8 +7,8 @@ class AddAccountPage < Calabash::ABase
   end
 
   def add_account(account)
-    enter_text("* id:'name'", account['name'])
-    enter_text("* id:'balanceBroughtForward'", account['balance brought forward'])
+    enter_text("* id:'name'", account.name)
+    enter_text("* id:'balanceBroughtForward'", account.balance)
     touch("* marked:'Confirm'")
   end
 

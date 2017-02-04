@@ -6,13 +6,13 @@ class EditAccountPage < Calabash::ABase
     "* marked:'Update'"
   end
 
-  def edit_account(name, balance_brought_forward)
+  def edit_account(account)
     touch("* id:'name'")
     clear_text("* id:'name'")
-    enter_text("* id:'name'", name)
+    enter_text("* id:'name'", account.name)
     touch("* id:'balanceBroughtForward'")
     clear_text("* id:'balanceBroughtForward'")
-    enter_text("* id:'balanceBroughtForward'", balance_brought_forward)
+    enter_text("* id:'balanceBroughtForward'", account.balance)
     touch("* marked:'Update'")
   end
 

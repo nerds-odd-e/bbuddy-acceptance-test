@@ -1,7 +1,7 @@
-Given(/^exists the following accounts$/) do |table|
-  table.hashes.each do |account|
-    create_account(account)
+Given(/^exists the following accounts$/) do |accounts|
+  accounts.each do |account|
     @current_account = account
+    account.save
   end
 end
 
@@ -9,16 +9,14 @@ When(/^show all accounts$/) do
   page(DashboardPage).go_to_accounts
 end
 
-When(/^add account as below$/) do |table|
+When(/^add account as below$/) do |accounts|
   step 'show all accounts'
-  table.hashes.each do |account|
-    page(AccountsPage).go_to_add_account.add_account(account)
-  end
+  accounts.each { |account| page(AccountsPage).go_to_add_account.add_account(account) }
 end
 
-When(/^edit account as name "([^"]*)" and balance brought forward (\d+)$/) do |name, balance_brought_forward|
+When(/^edit account as (name \w+ and balance \d+)$/) do |account|
   step 'show all accounts'
-  page(AccountsPage).go_to_edit_account(@current_account).edit_account(name, balance_brought_forward)
+  page(AccountsPage).go_to_edit_account(@current_account).edit_account(account)
 end
 
 When(/^delete this account$/) do
@@ -30,8 +28,6 @@ Then(/^you will not see it in the list$/) do
   page(AccountsPage).assert_account_not_exists(@current_account)
 end
 
-Then(/^you will see all accounts as below$/) do |table|
-  table.hashes.each do |account|
-    page(AccountsPage).assert_account_exists(account)
-  end
+Then(/^you will see all accounts as below$/) do |accounts|
+  accounts.each { |account| page(AccountsPage).assert_account_exists(account) }
 end
