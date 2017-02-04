@@ -1,12 +1,7 @@
 require 'rest-client'
 
 Given(/^there is a user email "([^"]*)" and password is "([^"]*)"$/) do |email, password|
-  RestClient.post("http://localhost:4000/auth",
-                  {
-                      "email" => email,
-                      "password" => password
-                  }
-  )
+  create_user(email, password)
 end
 
 When(/^login with user email "([^"]*)" and password "([^"]*)"$/) do |email, password|

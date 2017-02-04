@@ -1,6 +1,6 @@
 Given(/^exists the following accounts$/) do |table|
   table.hashes.each do |account|
-    Account.create(name: account['name'], balance: account['balance brought forward'])
+    create_account(account)
     @current_name = account['name']
     @current_balance_brought_forward = account['balance brought forward']
   end

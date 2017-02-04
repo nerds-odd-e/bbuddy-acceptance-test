@@ -5,12 +5,7 @@ at_exit do
 end
 
 Before ('@login') do
-  RestClient.post("http://localhost:4000/auth",
-                  {
-                      "email" => 'joseph.yao.ruozhou@gmail.com',
-                      "password" => '123456'
-                  }
-  )
+  create_default_user
   wait_for_element_exists "* id:'email'"
   enter_text("* id:'email'", 'joseph.yao.ruozhou@gmail.com')
   wait_for_element_exists "* id:'password'"
