@@ -1,17 +1,7 @@
 require 'rest-client'
 
-def create_default_user
-  create_user("joseph.yao.ruozhou@gmail.com", "123456")
-end
-
-def create_user(email, password)
-  RestClient.post("http://localhost:4000/auth",
-                  {
-                      "email" => email,
-                      "password" => password
-                  }
-  )
-  User.new(email, password)
+def default_user
+  User.new("joseph.yao.ruozhou@gmail.com", "123456")
 end
 
 class User
@@ -24,4 +14,18 @@ class User
     @password = password
   end
 
+  def save
+    RestClient.post("http://localhost:4000/auth",
+                    {
+                        "email" => @email,
+                        "password" => @password
+                    }
+    )
+    self
+  end
+
+end
+
+Transform /^email "([^"]*)" and password "([^"]*)"$/ do |email, password|
+  User.new(email, password)
 end

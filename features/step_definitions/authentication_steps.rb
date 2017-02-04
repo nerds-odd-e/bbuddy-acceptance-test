@@ -1,9 +1,9 @@
-Given(/^there is a user email "([^"]*)" and password is "([^"]*)"$/) do |email, password|
-  create_user(email, password)
+Given(/^there is a user (email "[^"]*" and password "[^"]*")$/) do |user|
+  user.save
 end
 
-When(/^login with user email "([^"]*)" and password "([^"]*)"$/) do |email, password|
-  page(LoginPage).login(User.new(email, password))
+When(/^login with user (email "[^"]*" and password "[^"]*")$/) do |user|
+  page(LoginPage).login(user)
 end
 
 Then(/^login successfully$/) do

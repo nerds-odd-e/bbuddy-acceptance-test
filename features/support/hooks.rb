@@ -9,5 +9,5 @@ at_exit do
 end
 
 Before ('@login') do
-  page(LoginPage).login(create_default_user)
+  page(LoginPage).login(default_user.save)
 end
