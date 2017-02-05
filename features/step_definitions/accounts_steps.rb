@@ -9,9 +9,9 @@ When(/^show all accounts$/) do
   DashboardPage.open.go_to_accounts
 end
 
-When(/^add account as below$/) do |accounts|
+When(/^add account as (name \w+ and balance \d+)$/) do |account|
   step 'show all accounts'
-  accounts.each { |account| AccountsPage.open.go_to_add_account.add_account(account) }
+  AccountsPage.open.go_to_add_account.add_account(account)
 end
 
 When(/^edit account as (name \w+ and balance \d+)$/) do |account|
