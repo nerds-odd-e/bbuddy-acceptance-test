@@ -11,7 +11,7 @@ class PageBase
   end
 
   def await
-    wait_for_element_exists(ui_query_by_marked(marked))
+    wait_for_element_exists(marked)
     self
   end
 
