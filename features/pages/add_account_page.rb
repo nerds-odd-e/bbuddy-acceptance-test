@@ -1,15 +1,13 @@
-require 'calabash-android/abase'
+class AddAccountPage < PageBase
 
-class AddAccountPage < Calabash::ABase
-
-  def trait
-    "* marked:'Confirm'"
+  def marked
+    'Confirm'
   end
 
   def add_account(account)
-    enter_text("* id:'name'", account.name)
-    enter_text("* id:'balanceBroughtForward'", account.balance)
-    touch("* marked:'Confirm'")
+    enter_text('name', account.name)
+    enter_text('balanceBroughtForward', account.balance)
+    touch('Confirm')
   end
 
 end

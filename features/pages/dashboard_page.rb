@@ -1,17 +1,13 @@
-require 'calabash-android/abase'
+require_relative '../driver/page_base'
 
-class DashboardPage < Calabash::ABase
+class DashboardPage < PageBase
 
-  def trait
-    "* marked:'Dashboard'"
-  end
-
-  def assert_in_current_page
-    wait_for_elements_exist(trait)
+  def marked
+    'Dashboard'
   end
 
   def go_to_accounts
-    touch("* marked:'Accounts'")
+    touch('Accounts')
   end
 
 end

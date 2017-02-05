@@ -1,23 +1,17 @@
-require 'calabash-android/abase'
+class EditAccountPage < PageBase
 
-class EditAccountPage < Calabash::ABase
-
-  def trait
-    "* marked:'Update'"
+  def marked
+    'Update'
   end
 
   def edit_account(account)
-    touch("* id:'name'")
-    clear_text("* id:'name'")
-    enter_text("* id:'name'", account.name)
-    touch("* id:'balanceBroughtForward'")
-    clear_text("* id:'balanceBroughtForward'")
-    enter_text("* id:'balanceBroughtForward'", account.balance)
-    touch("* marked:'Update'")
+    clear_then_enter_text('name', account.name)
+    clear_then_enter_text('balanceBroughtForward', account.balance)
+    touch('Update')
   end
 
   def delete_account
-    touch("* marked:'Delete'")
+    touch('Delete')
   end
 
 end

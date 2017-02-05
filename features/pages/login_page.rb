@@ -1,17 +1,15 @@
-require 'calabash-android/abase'
+require_relative '../driver/page_base'
 
-class LoginPage < Calabash::ABase
+class LoginPage < PageBase
 
-  def trait
-    "* id:'email_sign_in_button'"
+  def marked
+    'email_sign_in_button'
   end
 
   def login(user)
-    wait_for_element_exists "* id:'email'"
-    enter_text("* id:'email'", user.email)
-    wait_for_element_exists "* id:'password'"
-    enter_text("* id:'password'", user.password)
-    touch("* id:'email_sign_in_button'")
+    enter_text('email', user.email)
+    enter_text('password', user.password)
+    touch('email_sign_in_button')
   end
 
   def assert_login_failed

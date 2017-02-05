@@ -3,13 +3,13 @@ Given(/^there is a user (email "[^"]*" and password "[^"]*")$/) do |user|
 end
 
 When(/^login with user (email "[^"]*" and password "[^"]*")$/) do |user|
-  open(LoginPage).login(user)
+  LoginPage.open.login(user)
 end
 
 Then(/^login successfully$/) do
-  open(DashboardPage).assert_in_current_page
+  DashboardPage.assert_is_current_page
 end
 
 Then(/^login failed$/) do
-  open(LoginPage).assert_login_failed
+  LoginPage.open.assert_login_failed
 end

@@ -1,24 +1,22 @@
-require 'calabash-android/abase'
+class AccountsPage < PageBase
 
-class AccountsPage < Calabash::ABase
-
-  def trait
-    "* id:'tabLayout'"
+  def marked
+    'tabLayout'
   end
 
   def go_to_add_account
-    touch("* marked:'Add'")
-    page(AddAccountPage)
+    touch('Add')
+    AddAccountPage.open
   end
 
   def go_to_edit_account(account)
-    touch("* marked:'#{account.name} #{account.balance}'")
-    page(EditAccountPage)
+    touch("#{account.name} #{account.balance}")
+    EditAccountPage.open
   end
 
-  def assert_account_not_exists(account)
-    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account.name}'}")
-    wait_for_element_does_not_exist("* {text CONTAINS[c] '#{account.balance}'}")
+  def assert_account_does_not_exist(account)
+    wait_for_text_does_not_exist(account.name)
+    wait_for_text_does_not_exist(account.balance)
   end
 
   def assert_account_exists(account)
