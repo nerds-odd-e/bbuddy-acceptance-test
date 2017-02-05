@@ -6,28 +6,28 @@ Given(/^exists the following accounts$/) do |accounts|
 end
 
 When(/^show all accounts$/) do
-  page(DashboardPage).go_to_accounts
+  open(DashboardPage).go_to_accounts
 end
 
 When(/^add account as below$/) do |accounts|
   step 'show all accounts'
-  accounts.each { |account| page(AccountsPage).go_to_add_account.add_account(account) }
+  accounts.each { |account| open(AccountsPage).go_to_add_account.add_account(account) }
 end
 
 When(/^edit account as (name \w+ and balance \d+)$/) do |account|
   step 'show all accounts'
-  page(AccountsPage).go_to_edit_account(@current_account).edit_account(account)
+  open(AccountsPage).go_to_edit_account(@current_account).edit_account(account)
 end
 
 When(/^delete this account$/) do
   step 'show all accounts'
-  page(AccountsPage).go_to_edit_account(@current_account).delete_account
+  open(AccountsPage).go_to_edit_account(@current_account).delete_account
 end
 
 Then(/^you will not see it in the list$/) do
-  page(AccountsPage).assert_account_not_exists(@current_account)
+  open(AccountsPage).assert_account_not_exists(@current_account)
 end
 
 Then(/^you will see all accounts as below$/) do |accounts|
-  accounts.each { |account| page(AccountsPage).assert_account_exists(account) }
+  accounts.each { |account| open(AccountsPage).assert_account_exists(account) }
 end
