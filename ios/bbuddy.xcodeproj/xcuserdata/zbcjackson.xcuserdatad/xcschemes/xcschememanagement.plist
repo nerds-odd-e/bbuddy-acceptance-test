@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>bbuddy copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>bbuddy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,10 +17,20 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0C0AA8E81E52AAAE008B4B00</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
+		<key>0C1A95CE1E4EC7A200B03F12</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
 		<key>0CC744B31E2C6781007EC830</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>
