@@ -2,127 +2,115 @@
 //  Api.swift
 //  bbuddy
 //
-//  Created by Jackson Zhang on 07/02/2017.
+//  Created by Jackson Zhang on 10/02/2017.
 //  Copyright © 2017 odd-e. All rights reserved.
 //
 
 import Foundation
 import Moya
+import Cely
+import Argo
 
-enum Api {
-    case signIn(email: String, password: String)
-    case showUser(id: Int)
-    case showAccounts
-}
-
-protocol Authorizable {
-    var shouldAuthorize: Bool { get }
-}
-
-struct AuthorizedToken {
-    let uid: String
-    let client: String
-    let accessToken: String
-    let type: String
-}
-
-struct AuthPlugin: PluginType {
-    let tokenClosure: () -> AuthorizedToken?
+class Api {
+    private let provider  = MoyaProvider<ApiDefinition>(
+        plugins: [
+            AuthPlugin(tokenClosure: {
+                if
+                    let uid = User.get(.email) as? String,
+                    let client = User.get(.client) as? String,
+                    let accessToken = User.get(.token) as? String,
+                    let type = User.get(.type) as? String {
+                    return AuthorizedToken(
+                        uid: uid,
+                        client: client,
+                        accessToken: accessToken,
+                        type: type
+                    )
+                }
+                return nil
+            })
+        ]
+    )
     
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        guard
-            let token = tokenClosure(),
-            let target = target as? Authorizable,
-            target.shouldAuthorize
-            else {
-                return request
-        }
-        
-        var request = request
-        request.addValue(token.type, forHTTPHeaderField: "token-type")
-        request.addValue(token.uid, forHTTPHeaderField: "uid")
-        request.addValue(token.client, forHTTPHeaderField: "client")
-        request.addValue(token.accessToken, forHTTPHeaderField: "access-token")
-        return request
-    }
-}
-
-// MARK: - TargetType Protocol Implementation
-extension Api: TargetType, Authorizable {
-    internal var shouldAuthorize: Bool {
-        switch self {
-        case .signIn:
-            return false
-        default:
-            return true
-        }
-    }
-
-    var baseURL: URL { return URL(string: "http://192.168.2.13:3000")! }
-    var path: String {
-        switch self {
-        case .signIn:
-            return "/auth/sign_in"
-        case .showUser(let id):
-            return "/users/\(id)"
-        case .showAccounts:
-            return "/accounts"
-        }
-    }
-    var method: Moya.Method {
-        switch self {
-        case .showUser, .showAccounts:
-            return .get
-        case .signIn:
-            return .post
-        }
-    }
-    var parameters: [String: Any]? {
-        switch self {
-        case .showUser, .showAccounts:
-            return nil
-        case .signIn(let email, let password):
-            return ["email": email, "password": password]
-        }
-    }
-    var parameterEncoding: ParameterEncoding {
-        switch self {
-        case .signIn:
-            return JSONEncoding.default
-        default:
-            return URLEncoding.default
-        }
-    }
-    var sampleData: Data {
-        switch self {
-        case .signIn(let email, _):
-            return "{\"id\": 100, \"email\": \"\(email)\", \"token\": \"FAKETOKEN\"}".utf8Encoded
-        case .showUser(let id):
-            return "{\"id\": \(id), \"first_name\": \"Harry\", \"last_name\": \"Potter\"}".utf8Encoded
-        case .showAccounts:
-            // Provided you have a file named accounts.json in your bundle.
-            guard let path = Bundle.main.path(forResource: "accounts", ofType: "json"),
-                let data = Data(base64Encoded: path) else {
-                    return Data()
+    private func request(_ method: ApiDefinition, handler: @escaping (Response)->Void){
+        provider.request(method) { result in
+            switch result {
+            case .success(let response):
+                switch response.statusCode {
+                case 200...299:
+                    handler(response)
+                case 401:
+                    Cely.logout()
+                default:
+                    print("error: \(response.statusCode)")
+                }
+            case .failure(let error):
+                print("failure: \(error)")
             }
-            return data
         }
-    }
-    var task: Task {
-        switch self {
-        case .signIn, .showUser, .showAccounts:
-            return .request
-        }
-    }
-}
-
-// MARK: - Helpers
-private extension String {
-    var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
-    var utf8Encoded: Data {
-        return self.data(using: .utf8)!
+    private func mapArray<T:Decodable>(_ response: Response) throws -> [T] where T == T.DecodedType {
+        do {
+            //map to JSON
+            let JSON = try response.mapJSON()
+            
+            //decode with Argo
+            let decodedArray:Decoded<[T]>
+            //no root key, it's an array
+            guard let array = JSON as? [AnyObject] else {
+                throw DecodeError.typeMismatch(expected: "\(T.DecodedType.self)", actual: "\(type(of: JSON))")
+            }
+            decodedArray = decode(array)
+            
+            //return array of decoded objects, or throw decoding error
+            return try decodedValue(decoded: decodedArray)
+        } catch {
+            throw error
+        }
+    }
+    
+    private func decodedValue<T>(decoded: Decoded<T>) throws -> T {
+        switch decoded {
+        case .success(let value):
+            return value
+        case .failure(let error):
+            throw error
+        }
+    }
+    
+    func signIn(_ email: String, password: String, action: @escaping () -> Void){
+        request(.signIn(email: email, password: password)) { _ in
+            Cely.changeStatus(to: .loggedIn)
+            action()
+        }
+    }
+    
+    func showAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
+        request(.showAccounts) { [unowned me = self] response in
+            do {
+                action(try me.mapArray(response))
+            } catch {
+                
+            }
+        }
+    }
+    
+    func addAccount(_ account: DTO.Account, to action: @escaping () -> Void) {
+        request(.addAccount(account: account)) { _ in
+            action()
+        }
+    }
+    
+    func updateAccount(_ account: DTO.Account, to action: @escaping () -> Void){
+        request(.updateAccount(account: account)) { _ in
+            action()
+        }
+    }
+    
+    func deleteAccount(_ account: DTO.Account, to action: @escaping () -> Void){
+        request(.deleteAccount(account: account)) { _ in
+            action()
+        }
     }
 }
