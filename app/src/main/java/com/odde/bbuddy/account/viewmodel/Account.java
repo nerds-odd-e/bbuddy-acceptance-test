@@ -1,6 +1,5 @@
-package com.odde.bbuddy.account;
+package com.odde.bbuddy.account.viewmodel;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,26 +9,32 @@ import java.io.Serializable;
 public class Account implements Serializable {
 
     private String name;
-
     @JsonProperty("balance")
     private int balanceBroughtForward;
-
-    @JsonCreator
-    public Account(@JsonProperty("name") String name, @JsonProperty("balance") int balanceBroughtForward) {
-        this.name = name;
-        this.balanceBroughtForward = balanceBroughtForward;
-    }
+    private int id;
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getBalanceBroughtForward() {
         return balanceBroughtForward;
     }
 
-    @Override
-    public String toString() {
-        return name + " " + balanceBroughtForward;
+    public void setBalanceBroughtForward(int balanceBroughtForward) {
+        this.balanceBroughtForward = balanceBroughtForward;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

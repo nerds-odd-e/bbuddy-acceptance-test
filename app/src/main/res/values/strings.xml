@@ -10,7 +10,17 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions." </string>
+
+    <!-- common strings -->
+    <string name="add">Add</string>
+    <string name="confirm">Confirm</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="dashboard">Dashboard</string>
+
+    <!-- account related strings -->
+    <string name="account_name">Name</string>
+    <string name="account_balance_brought_forward">Balance Brought Forward</string>
+
 </resources>

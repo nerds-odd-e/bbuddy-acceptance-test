@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.odde.bbuddy.account.view.AddAccountActivity;
+
 public class DashboardActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
     //This is our tablayout
