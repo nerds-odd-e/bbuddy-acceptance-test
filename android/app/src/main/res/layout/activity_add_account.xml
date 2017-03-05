@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://robobinding.org/android"
     android:id="@+id/activity_add_account"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.odde.bbuddy.AddAccountActivity">
+    tools:context="com.odde.bbuddy.account.view.AddAccountActivity">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -18,9 +19,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/account_name"
             android:inputType="textCapWords"
-            android:id="@+id/name" />
+            android:id="@+id/name"
+            bind:text = "${name}"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -31,15 +33,17 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Balance Brought Forward"
+            android:hint="@string/account_balance_brought_forward"
             android:inputType="number"
-            android:id="@+id/balanceBroughtForward" />
+            android:id="@+id/balanceBroughtForward"
+            bind:text = "${balanceBroughtForwardForView}" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:text="Confirm"
+        android:text="@string/confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/confirm" />
+        android:id="@+id/confirm"
+        bind:onClick = "add" />
 
 </LinearLayout>

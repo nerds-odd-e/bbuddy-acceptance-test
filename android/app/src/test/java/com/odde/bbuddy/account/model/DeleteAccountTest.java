@@ -1,7 +1,9 @@
-package com.odde.bbuddy.account;
+package com.odde.bbuddy.account.model;
 
 import android.support.annotation.NonNull;
 
+import com.odde.bbuddy.account.model.Accounts;
+import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
 
@@ -53,7 +55,7 @@ public class DeleteAccountTest {
 
     @NonNull
     private Account accountWithId(int id) {
-        Account account = new Account("name", 1000);
+        Account account = new Account();
         account.setId(id);
         return account;
     }

@@ -1,5 +1,7 @@
-package com.odde.bbuddy.account;
+package com.odde.bbuddy.account.model;
 
+import com.odde.bbuddy.account.model.Accounts;
+import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
 
@@ -23,11 +25,11 @@ public class AddAccountTest {
     JsonBackend mockJsonBackend = mock(JsonBackend.class);
     Accounts accounts = new Accounts(mockJsonBackend);
     Runnable mockRunnable = mock(Runnable.class);
-    Account account = new Account("name", 1000);
+    Account account = account("name", 1000);
 
     @Test
     public void add_account_with_name_and_balance_brought_forward() throws JSONException {
-        accounts.addAccount(new Account("name", 1000), mockRunnable);
+        accounts.addAccount(account("name", 1000), mockRunnable);
 
         ArgumentCaptor<JSONObject> captor = ArgumentCaptor.forClass(JSONObject.class);
         verify(mockJsonBackend).postRequestForJson(eq("/accounts"), captor.capture(), any(Consumer.class), any(Runnable.class));
@@ -42,6 +44,13 @@ public class AddAccountTest {
         accounts.addAccount(account, mockRunnable);
 
         verify(mockRunnable).run();
+    }
+
+    private Account account(String name, int balanceBroughtForward) {
+        Account account = new Account();
+        account.setName(name);
+        account.setBalanceBroughtForward(balanceBroughtForward);
+        return account;
     }
 
     private void given_backend_will_success() {
