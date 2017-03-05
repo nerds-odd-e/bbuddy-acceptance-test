@@ -1,0 +1,4 @@
+android: PLATFORM=android -r features/support -r features/android -r features/data -r features/driver -r features/pages -r features/server -r features/step_definitions
+
+ios: PLATFORM=ios -r features/support -r features/ios -r features/data -r features/driver -r features/pages -r features/server -r features/step_definitions
+

@@ -56,5 +56,9 @@ ActionController::Base.allow_rescue = false
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 # Cucumber::Rails::Database.javascript_strategy = :truncation
 
-require 'calabash-android/cucumber'
+if ENV['PLATFORM'] == 'ios'
+  require 'calabash-cucumber/cucumber'
+elsif ENV['PLATFORM'] == 'android'
+  require 'calabash-android/cucumber'
+end
 
