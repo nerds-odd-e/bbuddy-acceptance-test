@@ -10,8 +10,12 @@
 # Ignore screenshots
 *.png
 
-# Ignore test servers
+# Ignore Calabash Android test servers
 test_servers
+
+# Ignore Calabash iOS files
+.irb-history
+calabash.framework
 
 # Ignore Intellij project files
 .idea

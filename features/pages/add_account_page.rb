@@ -1,3 +1,5 @@
+require_relative 'page_base'
+
 class AddAccountPage < PageBase
 
   def marked

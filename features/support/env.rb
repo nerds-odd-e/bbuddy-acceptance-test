@@ -58,9 +58,12 @@ ActionController::Base.allow_rescue = false
 
 if ENV['PLATFORM'] == 'ios'
   require 'calabash-cucumber/cucumber'
-  require_relative '../ios/driver/calabash_driver'
+  require_relative '../z_ios/driver/calabash_driver'
+  require_relative '../z_ios/support/01_launch'
 elsif ENV['PLATFORM'] == 'android'
   require 'calabash-android/cucumber'
-  require_relative '../android/driver/calabash_driver'
+  require_relative '../z_android/driver/calabash_driver'
+  require_relative '../z_android/support/app_installation_hooks'
+  require_relative '../z_android/support/app_life_cycle_hooks'
 end
 

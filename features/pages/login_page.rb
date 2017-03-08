@@ -1,4 +1,4 @@
-require_relative '../driver/page_base'
+require_relative 'page_base'
 
 class LoginPage < PageBase
 
