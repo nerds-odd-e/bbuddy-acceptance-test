@@ -33,7 +33,13 @@ extension ApiDefinition: TargetType, Authorizable {
         }
     }
 
-    var baseURL: URL { return URL(string: "http://localhost:3000")! }
+    var baseURL: URL {
+        #if TEST
+            return URL(string: "http://localhost:4000")!
+        #else
+            return URL(string: "http://localhost:3000")!
+        #endif
+    }
     var path: String {
         switch self {
         case .signIn:

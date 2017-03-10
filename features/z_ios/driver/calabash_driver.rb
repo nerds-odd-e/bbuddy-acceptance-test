@@ -6,6 +6,8 @@ module Bbuddy module AcceptanceTest
     end
 
     def clear_then_enter_text(marked, text)
+      clear_text_in(marked_ui_query(marked))
+      enter_text(marked, text)
     end
 
     def touch(query, options={})
@@ -20,6 +22,11 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_text(text)
+      wait_for_element_exists("* {text CONTAINS[c] '#{text}'}")
+    end
+
+    def clear_text_in(query)
+
     end
 
     def marked_ui_query(query)

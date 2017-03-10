@@ -9,4 +9,10 @@ class AccountsPage < PageBase
     AddAccountPage.open
   end
 
+  def go_to_edit_account(account)
+    wait_for_text("#{account.name}")
+    touch("#{account.name}")
+    EditAccountPage.open
+  end
+
 end

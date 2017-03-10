@@ -8,6 +8,7 @@ class LoginPage < PageBase
     enter_text('Username', user.email)
     enter_text('Password', user.password)
     touch('Login')
+    wait_for_text('Dashboard')
   end
 
   def assert_login_failed
