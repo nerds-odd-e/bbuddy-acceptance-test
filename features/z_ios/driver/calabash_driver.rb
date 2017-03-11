@@ -5,9 +5,9 @@ module Bbuddy module AcceptanceTest
       keyboard_enter_text(text)
     end
 
-    def clear_then_enter_text(marked, text)
-      clear_text_in(marked_ui_query(marked))
-      enter_text(marked, text)
+    def clear_then_enter_text(query, text)
+      clear_text_in(marked_ui_query(query))
+      enter_text(query, text)
     end
 
     def touch(query, options={})
@@ -15,10 +15,17 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_text_does_not_exist(text)
+      wait_for_element_does_not_exist("* {text CONTAINS[c] '#{text}'}")
     end
 
     def wait_for_element_exists(query, options={})
       super(marked_ui_query(query), options)
+    end
+
+    def wait_for_this_kind_of_element_exists(ui_query)
+      wait_for(:timeout => 10) {
+        element_exists(ui_query)
+      }
     end
 
     def wait_for_text(text)
@@ -26,18 +33,18 @@ module Bbuddy module AcceptanceTest
     end
 
     def clear_text_in(query)
-
+      clear_text(marked_ui_query(query))
     end
 
     def marked_ui_query(query)
-      if marked?(query)
+      if not_marked?(query)
         "* marked:'#{query}'"
       else
         query
       end
     end
 
-    def marked?(str)
+    def not_marked?(str)
       str.match?(/^[a-z0-9_ ]+$/i)
     end
 

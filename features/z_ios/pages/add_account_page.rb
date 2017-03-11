@@ -5,8 +5,8 @@ class AddAccountPage < PageBase
   end
 
   def add_account(account)
-    enter_text('Name', account.name)
-    enter_text('0', account.balance)
+    enter_text('name', account.name)
+    enter_text('balance', account.balance)
     touch('Save')
   end
 

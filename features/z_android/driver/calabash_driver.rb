@@ -33,6 +33,9 @@ module Bbuddy module AcceptanceTest
       str.match?(/^[a-z0-9_ ]+$/i)
     end
 
+    def wait_for_none_animating
+    end
+
   end
 end end
 
