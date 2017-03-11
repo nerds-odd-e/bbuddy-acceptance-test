@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: bbuddy/Api.swift at 2017-02-14 09:18:06 +0000
+// MARK: - Mocks generated from file: bbuddy/Api.swift at 2017-03-11 04:31:53 +0000
 
 //
 //  Api.swift
@@ -33,8 +33,8 @@ class MockApi: Api, Cuckoo.Mock {
         return manager.call("signIn(_: String, password: String, action: @escaping () -> Void)", parameters: (email, password, action), original: observed.map { o in return { (email: String, password: String, action: @escaping () -> Void) in o.signIn(email, password: password, action: action) } })
     }
     
-    override func showAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
-        return manager.call("showAccounts(_: @escaping ([DTO.Account]) -> Void)", parameters: (action), original: observed.map { o in return { (action: @escaping ([DTO.Account]) -> Void) in o.showAccounts(action) } })
+    override func getAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
+        return manager.call("getAccounts(_: @escaping ([DTO.Account]) -> Void)", parameters: (action), original: observed.map { o in return { (action: @escaping ([DTO.Account]) -> Void) in o.getAccounts(action) } })
     }
     
     override func addAccount(_ account: DTO.Account, to action: @escaping () -> Void) {
@@ -61,9 +61,9 @@ class MockApi: Api, Cuckoo.Mock {
             return Cuckoo.StubNoReturnFunction(stub: manager.createStub("signIn(_: String, password: String, action: @escaping () -> Void)", parameterMatchers: matchers))
         }
         
-        func showAccounts<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.StubNoReturnFunction<(([DTO.Account]) -> Void)> where M1.MatchedType == ([DTO.Account]) -> Void {
+        func getAccounts<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.StubNoReturnFunction<(([DTO.Account]) -> Void)> where M1.MatchedType == ([DTO.Account]) -> Void {
             let matchers: [Cuckoo.ParameterMatcher<(([DTO.Account]) -> Void)>] = [wrap(matchable: action) { $0 }]
-            return Cuckoo.StubNoReturnFunction(stub: manager.createStub("showAccounts(_: @escaping ([DTO.Account]) -> Void)", parameterMatchers: matchers))
+            return Cuckoo.StubNoReturnFunction(stub: manager.createStub("getAccounts(_: @escaping ([DTO.Account]) -> Void)", parameterMatchers: matchers))
         }
         
         func addAccount<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(_ account: M1, to action: M2) -> Cuckoo.StubNoReturnFunction<(DTO.Account, () -> Void)> where M1.MatchedType == DTO.Account, M2.MatchedType == () -> Void {
@@ -100,9 +100,9 @@ class MockApi: Api, Cuckoo.Mock {
         }
         
         @discardableResult
-        func showAccounts<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == ([DTO.Account]) -> Void {
+        func getAccounts<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == ([DTO.Account]) -> Void {
             let matchers: [Cuckoo.ParameterMatcher<(([DTO.Account]) -> Void)>] = [wrap(matchable: action) { $0 }]
-            return manager.verify("showAccounts(_: @escaping ([DTO.Account]) -> Void)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+            return manager.verify("getAccounts(_: @escaping ([DTO.Account]) -> Void)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
         @discardableResult
@@ -131,7 +131,7 @@ class ApiStub: Api {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
-    override func showAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
+    override func getAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     

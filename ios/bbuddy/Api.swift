@@ -86,8 +86,8 @@ class Api {
         }
     }
     
-    func showAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
-        request(.showAccounts) { [unowned me = self] response in
+    func getAccounts(_ action: @escaping ([DTO.Account]) -> Void) {
+        request(.getAccounts) { [unowned me = self] response in
             do {
                 action(try me.mapArray(response))
             } catch {

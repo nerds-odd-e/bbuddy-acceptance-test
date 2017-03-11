@@ -11,8 +11,8 @@ import Moya
 
 enum ApiDefinition {
     case signIn(email: String, password: String)
-    case showUser(id: Int)
-    case showAccounts
+    case getUser(id: Int)
+    case getAccounts
     case addAccount(account: DTO.Account)
     case updateAccount(account: DTO.Account)
     case deleteAccount(account: DTO.Account)
@@ -44,9 +44,9 @@ extension ApiDefinition: TargetType, Authorizable {
         switch self {
         case .signIn:
             return "/auth/sign_in"
-        case .showUser(let id):
+        case .getUser(let id):
             return "/users/\(id)"
-        case .showAccounts, .addAccount:
+        case .getAccounts, .addAccount:
             return "/accounts"
         case .updateAccount(let account), .deleteAccount(let account):
             return "/accounts/\(account.id)"
@@ -54,7 +54,7 @@ extension ApiDefinition: TargetType, Authorizable {
     }
     var method: Moya.Method {
         switch self {
-        case .showUser, .showAccounts:
+        case .getUser, .getAccounts:
             return .get
         case .signIn, .addAccount:
             return .post
@@ -66,7 +66,7 @@ extension ApiDefinition: TargetType, Authorizable {
     }
     var parameters: [String: Any]? {
         switch self {
-        case .showUser, .showAccounts, .deleteAccount:
+        case .getUser, .getAccounts, .deleteAccount:
             return nil
         case .signIn(let email, let password):
             return ["email": email, "password": password]
@@ -86,9 +86,9 @@ extension ApiDefinition: TargetType, Authorizable {
         switch self {
         case .signIn(let email, _):
             return "{\"id\": 100, \"email\": \"\(email)\", \"token\": \"FAKETOKEN\"}".utf8Encoded
-        case .showUser(let id):
+        case .getUser(let id):
             return "{\"id\": \(id), \"first_name\": \"Harry\", \"last_name\": \"Potter\"}".utf8Encoded
-        case .showAccounts:
+        case .getAccounts:
             // Provided you have a file named accounts.json in your bundle.
             guard let path = Bundle.main.path(forResource: "accounts", ofType: "json"),
                 let data = Data(base64Encoded: path) else {

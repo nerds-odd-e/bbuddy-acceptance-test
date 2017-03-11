@@ -22,8 +22,8 @@ class Accounts {
     }
 
     func fetch(to action: @escaping () -> Void){
-        api.showAccounts { accounts in
-            self.accounts = accounts
+        api.getAccounts { [unowned me = self]accounts in
+            me.accounts = accounts
             action()
         }
     }

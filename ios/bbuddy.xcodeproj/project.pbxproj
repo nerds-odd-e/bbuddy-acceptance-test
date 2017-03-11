@@ -14,6 +14,7 @@
 		0C0AA8FE1E52B81B008B4B00 /* Account.dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AA8FD1E52B81B008B4B00 /* Account.dto.swift */; };
 		0C0AA9011E52B892008B4B00 /* Account.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AA9001E52B892008B4B00 /* Account.model.swift */; };
 		0C0AA9031E52E575008B4B00 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AA9021E52E575008B4B00 /* GeneratedMocks.swift */; };
+		0C1282F51E73B3ED00D72735 /* AccountsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1282F41E73B3ED00D72735 /* AccountsTest.swift */; };
 		0C1A95B21E4B0CAB00B03F12 /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A95B11E4B0CAB00B03F12 /* AccountsTableViewController.swift */; };
 		0C1A95B61E4B456200B03F12 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1A95B51E4B456200B03F12 /* Argo.framework */; };
 		0C1A95B81E4B518500B03F12 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1A95B71E4B518500B03F12 /* Runes.framework */; };
@@ -92,6 +93,7 @@
 		0C0AA8FD1E52B81B008B4B00 /* Account.dto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.dto.swift; path = DTO/Account.dto.swift; sourceTree = "<group>"; };
 		0C0AA9001E52B892008B4B00 /* Account.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.model.swift; sourceTree = "<group>"; };
 		0C0AA9021E52E575008B4B00 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		0C1282F41E73B3ED00D72735 /* AccountsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTest.swift; sourceTree = "<group>"; };
 		0C1A95B11E4B0CAB00B03F12 /* AccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewController.swift; sourceTree = "<group>"; };
 		0C1A95B51E4B456200B03F12 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
 		0C1A95B71E4B518500B03F12 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				0C0AA8F81E52AB83008B4B00 /* AccountTest.swift */,
 				0C0AA9021E52E575008B4B00 /* GeneratedMocks.swift */,
+				0C1282F41E73B3ED00D72735 /* AccountsTest.swift */,
 				0C0AA8ED1E52AAAE008B4B00 /* Info.plist */,
 			);
 			path = bbuddyTests;
@@ -479,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1282F51E73B3ED00D72735 /* AccountsTest.swift in Sources */,
 				0C0AA9031E52E575008B4B00 /* GeneratedMocks.swift in Sources */,
 				0C0AA8F91E52AB83008B4B00 /* AccountTest.swift in Sources */,
 			);
