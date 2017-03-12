@@ -1,5 +1,4 @@
 Given(/^exists the following accounts$/) do |accounts|
-  LoginPage.new.disappear
   accounts.each do |account|
     account.save!
     @current_account = account

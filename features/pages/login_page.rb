@@ -3,17 +3,21 @@ require_relative 'page_base'
 class LoginPage < PageBase
 
   def marked
-    'email_sign_in_button'
+    'Login'
   end
 
   def login(user)
-    enter_text('email', user.email)
-    enter_text('password', user.password)
-    touch('email_sign_in_button')
+    enter_text('Username', user.email)
+    enter_text('Password', user.password)
+    touch('Login')
   end
 
   def assert_login_failed
     wait_for_text "failed"
+  end
+
+  def disappear
+    wait_for_element_does_not_exist(marked)
   end
 
 end
