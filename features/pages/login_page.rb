@@ -12,12 +12,4 @@ class LoginPage < PageBase
     touch('Login')
   end
 
-  def assert_login_failed
-    wait_for_text "failed"
-  end
-
-  def disappear
-    wait_for_element_does_not_exist(marked)
-  end
-
 end
