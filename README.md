@@ -9,6 +9,7 @@ Please install the following tools for this project. The latest version should b
 * Rubymine (or any editor you preferred for ruby development)
 * Genymotion (or any Android simulator you preferred)
     * Please install a simulator since there is no pre-installed simulator, e.g. Google Galaxy Nexus-4.1.1-API 16-720 * 1280
+* [Carthage](https://github.com/Carthage/Carthage)
 * Xcode 8.2.1 (latest version)
     * Please make sure there is at least one simulator installed (iOS 10.2 should be installed already)
     * After install the latest Xcode, please run `xcode-select --install` to install some required libraries 
@@ -27,6 +28,7 @@ Use git to clone this project into a folder. Then in this folder, run the comman
     * Run acceptance tests `calabash-android run android/app/build/outputs/apk/app-debug.apk -p android`
 * Run acceptance tests for iOS
     * Download calabash framework `cd ios; calabash-ios download`
+    * Install dependencies by Carthage `cd ios; carthage update`
     * Use Xcode to build the bbuddy-cal target
     * Run acceptance tests `cucumber -p ios`
 
