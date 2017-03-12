@@ -23,6 +23,10 @@ module Bbuddy module AcceptanceTest
       clear_text(marked_ui_query(query))
     end
 
+    def swipe_left(query)
+      swipe :left, :query => marked_ui_query(query), :offset => {:x => 100, :y => 0}
+    end
+
   end
 end end
 
