@@ -14,6 +14,10 @@ module Bbuddy module AcceptanceTest
       super(marked_ui_query(query), options)
     end
 
+    def touch_navigation_button(index)
+      touch("navigationButton index:#{index}")
+    end
+
     def wait_for_text_does_not_exist(text)
       wait_for_element_does_not_exist("* {text CONTAINS[c] '#{text}'}")
     end
@@ -34,6 +38,11 @@ module Bbuddy module AcceptanceTest
 
     def wait_for_text(text)
       wait_for_element_exists("* {text CONTAINS[c] '#{text}'}")
+    end
+
+    def wait_for_text_and_then_touch(text)
+      wait_for_text(text)
+      touch(text)
     end
 
     def clear_text_in(query)

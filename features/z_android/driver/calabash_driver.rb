@@ -25,6 +25,11 @@ module Bbuddy module AcceptanceTest
       super(marked_ui_query(query), options)
     end
 
+    def wait_for_text_and_then_touch(text)
+      wait_for_text(text)
+      touch(text)
+    end
+
     def marked_ui_query(query)
       if marked?(query)
         "* marked:'#{query}'"
