@@ -1,6 +1,6 @@
 # config/cucumber.yml
 ##YAML Template
 ---
-android: PLATFORM=android -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/z_android/pages
+android: PLATFORM=android -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_android/pages
 
-ios: PLATFORM=ios -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/z_ios/pages
+ios: PLATFORM=ios -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_ios/pages
