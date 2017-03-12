@@ -22,6 +22,10 @@ module Bbuddy module AcceptanceTest
       super(marked_ui_query(query), options)
     end
 
+    def wait_for_element_does_not_exist(query, options={})
+      super(marked_ui_query(query), options)
+    end
+
     def wait_for_this_kind_of_element_exists(ui_query)
       wait_for(:timeout => 10) {
         element_exists(ui_query)

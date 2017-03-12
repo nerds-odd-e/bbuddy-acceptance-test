@@ -21,6 +21,10 @@ module Bbuddy module AcceptanceTest
       super(marked_ui_query(query), options)
     end
 
+    def wait_for_element_does_not_exist(query, options={})
+      super(marked_ui_query(query), options)
+    end
+
     def marked_ui_query(query)
       if marked?(query)
         "* marked:'#{query}'"

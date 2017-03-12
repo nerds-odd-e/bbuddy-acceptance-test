@@ -23,7 +23,6 @@ Before do |scenario|
   if scenario_tags.include?('@reinstall')
     @calabash_launcher.reset_app_jail
   end
-  @calabash_launcher.reset_simulator
   @calabash_launcher.relaunch()
   @calabash_launcher.calabash_notify(self)
 end
@@ -36,3 +35,8 @@ After do |scenario|
     end
   end
 end
+
+After ('@login') do
+  MePage.open.sign_out
+end
+
