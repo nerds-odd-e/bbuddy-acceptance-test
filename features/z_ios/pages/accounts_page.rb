@@ -10,4 +10,10 @@ class AccountsPage < PageBase
     EditAccountPage.open
   end
 
+  def delete_account(account)
+    wait_for_element_exists(account.name)
+    swipe :left, :query => "* marked:'#{account.name}'", :offset => {:x => 100, :y => 0}
+    touch('Delete')
+  end
+
 end

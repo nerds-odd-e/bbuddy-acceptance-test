@@ -19,11 +19,6 @@ When(/^edit account as (name \w+ and balance \d+)$/) do |account|
   AccountsPage.open.go_to_edit_account(@current_account).edit_account(account)
 end
 
-When(/^delete this account$/) do
-  step 'show all accounts'
-  AccountsPage.open.go_to_edit_account(@current_account).delete_account
-end
-
 Then(/^you will not see it in the list$/) do
   AccountsPage.open.assert_account_does_not_exist(@current_account)
 end
