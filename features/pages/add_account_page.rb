@@ -7,8 +7,8 @@ class AddAccountPage < PageBase
   end
 
   def add_account(account)
-    enter_text('name', account.name)
-    enter_text('balanceBroughtForward', account.balance)
+    clear_then_enter_text('name', account.name)
+    clear_then_enter_text('balanceBroughtForward', account.balance)
     touch(marked)
   end
 

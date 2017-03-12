@@ -12,8 +12,4 @@ class EditAccountPage < PageBase
     touch(marked)
   end
 
-  def delete_account
-    touch('Delete')
-  end
-
 end
