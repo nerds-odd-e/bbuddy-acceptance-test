@@ -12,7 +12,7 @@ Before do |scenario|
 end
 
 Before ('@login') do
-  LoginPage.open.login(default_user.save)
+  LoginPage.open.login(User.create!(email: "joseph.yao.ruozhou@gmail.com", password: "123456", password_confirmation: "123456"))
 end
 
 Around do |scenario, block|

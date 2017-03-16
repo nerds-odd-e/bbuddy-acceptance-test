@@ -7,7 +7,5 @@ group  :test do
   gem "calabash-cucumber", "~> 0.20.4"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'rest-client'
-  gem 'mysql2'
 end
 
