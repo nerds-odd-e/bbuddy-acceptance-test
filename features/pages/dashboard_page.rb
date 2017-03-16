@@ -10,4 +10,8 @@ class DashboardPage < PageBase
     touch('Accounts')
   end
 
+  def go_to_budgets
+    touch('Budgets')
+  end
+
 end
