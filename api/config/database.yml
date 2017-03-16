@@ -5,29 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
-development:
-  <<: *default
-  database: db/development.sqlite3
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test: &test
   adapter: mysql2
   encoding: utf8
-  database: bbuddy_api_test
+  database: bbuddy_api_dev
   username: nerd
   password: dbs3cr3t
   host: 127.0.0.1
   port: 3306
 
+development:
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+  database: bbuddy_api_test
+
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: bbuddy_api_production
 
 cucumber:
   <<: *test
