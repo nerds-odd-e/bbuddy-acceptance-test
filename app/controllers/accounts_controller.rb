@@ -44,7 +44,11 @@ class AccountsController < ApplicationController
 
   # DELETE /accounts/1
   def destroy
-    @account.destroy
+    if @account.destroy
+      render json: @account
+    else
+      render json: errors(@account.errors), status: :unprocessable_entity
+    end
   end
 
   private
