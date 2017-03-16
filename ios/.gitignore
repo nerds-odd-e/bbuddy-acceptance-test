@@ -30,3 +30,6 @@ Carthage
 # Swift Package Manager
 .build
 Packages
+
+# Calabash
+calabash.framework

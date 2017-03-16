@@ -113,4 +113,10 @@ class Api {
             action()
         }
     }
+    
+    func addBudget(_ budget: DTO.Budget, to action: @escaping () -> Void) {
+        request(.addBudget(budget: budget)) { _ in
+            action()
+        }
+    }
 }

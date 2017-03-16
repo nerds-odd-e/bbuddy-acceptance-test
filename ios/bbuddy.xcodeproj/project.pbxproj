@@ -41,6 +41,20 @@
 		0CC744BF1E2C6781007EC830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC744BD1E2C6781007EC830 /* Main.storyboard */; };
 		0CC744C11E2C6781007EC830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC744C01E2C6781007EC830 /* Assets.xcassets */; };
 		0CC744C41E2C6781007EC830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC744C21E2C6781007EC830 /* LaunchScreen.storyboard */; };
+		0CD98E021E7A47E60017C334 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E011E7A47E60017C334 /* BudgetDetailViewController.swift */; };
+		0CD98E031E7A487B0017C334 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E011E7A47E60017C334 /* BudgetDetailViewController.swift */; };
+		0CD98E051E7A4B3B0017C334 /* BudgetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E041E7A4B3B0017C334 /* BudgetsTableViewController.swift */; };
+		0CD98E061E7A4B3B0017C334 /* BudgetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E041E7A4B3B0017C334 /* BudgetsTableViewController.swift */; };
+		0CD98E081E7A5C9E0017C334 /* Budgets.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E071E7A5C9E0017C334 /* Budgets.model.swift */; };
+		0CD98E091E7A5C9E0017C334 /* Budgets.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E071E7A5C9E0017C334 /* Budgets.model.swift */; };
+		0CD98E0B1E7A762F0017C334 /* Budget.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E0A1E7A762F0017C334 /* Budget.model.swift */; };
+		0CD98E0C1E7A762F0017C334 /* Budget.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E0A1E7A762F0017C334 /* Budget.model.swift */; };
+		0CD98E0E1E7A7D730017C334 /* BudgetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E0D1E7A7D730017C334 /* BudgetTest.swift */; };
+		0CD98E101E7A81750017C334 /* Budget.dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E0F1E7A81750017C334 /* Budget.dto.swift */; };
+		0CD98E111E7A81750017C334 /* Budget.dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E0F1E7A81750017C334 /* Budget.dto.swift */; };
+		0CD98E131E7A89A60017C334 /* Cuckoo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C0AA8F51E52AAD1008B4B00 /* Cuckoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CD98E141E7A89A60017C334 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1A95F21E4EC7E500B03F12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CD98E151E7A89A60017C334 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1A95F31E4EC7E500B03F12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14845eab1faa2b1528a538ff /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1A95B91E4B5E5300B03F12 /* Curry.framework */; };
 		19fe892539bc4e20dfcc9d20 /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A95C91E4E01FC00B03F12 /* AuthPlugin.swift */; };
 		222da3d8b5e0d56287d188d0 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C545FC61E486598004225E7 /* MeViewController.swift */; };
@@ -85,6 +99,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0CD98E121E7A89880017C334 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0CD98E131E7A89A60017C334 /* Cuckoo.framework in CopyFiles */,
+				0CD98E141E7A89A60017C334 /* Nimble.framework in CopyFiles */,
+				0CD98E151E7A89A60017C334 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0C0AA8E91E52AAAE008B4B00 /* bbuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bbuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C0AA8ED1E52AAAE008B4B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +153,12 @@
 		0CC744C01E2C6781007EC830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC744C31E2C6781007EC830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CC744C51E2C6781007EC830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD98E011E7A47E60017C334 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
+		0CD98E041E7A4B3B0017C334 /* BudgetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetsTableViewController.swift; sourceTree = "<group>"; };
+		0CD98E071E7A5C9E0017C334 /* Budgets.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budgets.model.swift; sourceTree = "<group>"; };
+		0CD98E0A1E7A762F0017C334 /* Budget.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.model.swift; sourceTree = "<group>"; };
+		0CD98E0D1E7A7D730017C334 /* BudgetTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTest.swift; sourceTree = "<group>"; };
+		0CD98E0F1E7A81750017C334 /* Budget.dto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Budget.dto.swift; path = DTO/Budget.dto.swift; sourceTree = "<group>"; };
 		0c25ed4e90875cbf6e4dd15c /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		746D8FCE1E6EE6C8007D75D1 /* bbuddy-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bbuddy-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC6DAB39A17406061B40971 /* Accounts.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.model.swift; sourceTree = "<group>"; };
@@ -187,6 +222,7 @@
 				0C0AA9021E52E575008B4B00 /* GeneratedMocks.swift */,
 				0C1282F41E73B3ED00D72735 /* AccountsTest.swift */,
 				0C0AA8ED1E52AAAE008B4B00 /* Info.plist */,
+				0CD98E0D1E7A7D730017C334 /* BudgetTest.swift */,
 			);
 			path = bbuddyTests;
 			sourceTree = "<group>";
@@ -195,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				0C0AA8FD1E52B81B008B4B00 /* Account.dto.swift */,
+				0CD98E0F1E7A81750017C334 /* Budget.dto.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -204,6 +241,8 @@
 			children = (
 				0C0AA9001E52B892008B4B00 /* Account.model.swift */,
 				EBC6DAB39A17406061B40971 /* Accounts.model.swift */,
+				0CD98E071E7A5C9E0017C334 /* Budgets.model.swift */,
+				0CD98E0A1E7A762F0017C334 /* Budget.model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +302,8 @@
 				0C1A95C91E4E01FC00B03F12 /* AuthPlugin.swift */,
 				0C1A95C71E4DF1AE00B03F12 /* Api.swift */,
 				0CC744BD1E2C6781007EC830 /* Main.storyboard */,
+				0CD98E041E7A4B3B0017C334 /* BudgetsTableViewController.swift */,
+				0CD98E011E7A47E60017C334 /* BudgetDetailViewController.swift */,
 				0C1A95C51E4D936D00B03F12 /* AccountDetailViewController.swift */,
 				0C1A95B11E4B0CAB00B03F12 /* AccountsTableViewController.swift */,
 				0C545FD31E499FD0004225E7 /* LoginStyles.swift */,
@@ -287,6 +328,7 @@
 				0C0AA8E61E52AAAE008B4B00 /* Frameworks */,
 				0C0AA8E71E52AAAE008B4B00 /* Resources */,
 				0C0AA8F71E52AAD9008B4B00 /* ShellScript */,
+				0CD98E121E7A89880017C334 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -484,6 +526,7 @@
 			files = (
 				0C1282F51E73B3ED00D72735 /* AccountsTest.swift in Sources */,
 				0C0AA9031E52E575008B4B00 /* GeneratedMocks.swift in Sources */,
+				0CD98E0E1E7A7D730017C334 /* BudgetTest.swift in Sources */,
 				0C0AA8F91E52AB83008B4B00 /* AccountTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +535,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD98E051E7A4B3B0017C334 /* BudgetsTableViewController.swift in Sources */,
+				0CD98E081E7A5C9E0017C334 /* Budgets.model.swift in Sources */,
 				0C545FC71E486598004225E7 /* MeViewController.swift in Sources */,
+				0CD98E0B1E7A762F0017C334 /* Budget.model.swift in Sources */,
+				0CD98E101E7A81750017C334 /* Budget.dto.swift in Sources */,
 				0C0AA9011E52B892008B4B00 /* Account.model.swift in Sources */,
 				0C0AA8FE1E52B81B008B4B00 /* Account.dto.swift in Sources */,
 				0C1A95C61E4D936D00B03F12 /* AccountDetailViewController.swift in Sources */,
@@ -503,6 +550,7 @@
 				0C545FD21E48B18F004225E7 /* MainTabBarViewController.swift in Sources */,
 				0C1A95CA1E4E01FC00B03F12 /* AuthPlugin.swift in Sources */,
 				0CC744B81E2C6781007EC830 /* AppDelegate.swift in Sources */,
+				0CD98E021E7A47E60017C334 /* BudgetDetailViewController.swift in Sources */,
 				0C545FD61E49AEAA004225E7 /* ApiDefinition.swift in Sources */,
 				0CC744BA1E2C6781007EC830 /* DashboardViewController.swift in Sources */,
 				EBC6D92F1E3A9DBB80672EB7 /* Accounts.model.swift in Sources */,
@@ -513,6 +561,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD98E061E7A4B3B0017C334 /* BudgetsTableViewController.swift in Sources */,
+				0CD98E091E7A5C9E0017C334 /* Budgets.model.swift in Sources */,
+				0CD98E031E7A487B0017C334 /* BudgetDetailViewController.swift in Sources */,
+				0CD98E0C1E7A762F0017C334 /* Budget.model.swift in Sources */,
+				0CD98E111E7A81750017C334 /* Budget.dto.swift in Sources */,
 				222da3d8b5e0d56287d188d0 /* MeViewController.swift in Sources */,
 				da622fade7652e52dbf2b71d /* Account.model.swift in Sources */,
 				edfc7aef8db95c8815cf87e6 /* Account.dto.swift in Sources */,
