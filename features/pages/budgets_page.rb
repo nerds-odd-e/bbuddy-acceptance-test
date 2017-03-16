@@ -11,9 +11,9 @@ class BudgetsPage < PageBase
     wait_for_text_does_not_exist(budget.amount)
   end
 
-  def assert_budgets_exists(month, amount)
-    wait_for_text month
-    wait_for_text amount
+  def assert_budgets_exists(budget)
+    wait_for_text budget.month
+    wait_for_text budget.amount
   end
 
 end

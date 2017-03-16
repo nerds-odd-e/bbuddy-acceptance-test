@@ -6,9 +6,9 @@ class AddBudgetPage < PageBase
     'Save'
   end
 
-  def add_budget(month, amount)
-    clear_then_enter_text('Month', month)
-    clear_then_enter_text('Amount', amount)
+  def add_budget(budget)
+    clear_then_enter_text('Month', budget.month)
+    clear_then_enter_text('Amount', budget.amount)
     touch(marked)
   end
 
