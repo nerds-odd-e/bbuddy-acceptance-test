@@ -12,7 +12,7 @@
 		<key>bbuddy-cal.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>bbuddy.xcscheme</key>
 		<dict>
@@ -25,22 +25,22 @@
 		<key>0C0AA8E81E52AAAE008B4B00</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>0C1A95CE1E4EC7A200B03F12</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>0CC744B31E2C6781007EC830</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2828cc74a5aa09f053825d8f</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

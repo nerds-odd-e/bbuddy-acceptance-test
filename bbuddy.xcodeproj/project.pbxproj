@@ -55,6 +55,7 @@
 		0CD98E131E7A89A60017C334 /* Cuckoo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C0AA8F51E52AAD1008B4B00 /* Cuckoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0CD98E141E7A89A60017C334 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1A95F21E4EC7E500B03F12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0CD98E151E7A89A60017C334 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0C1A95F31E4EC7E500B03F12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CD98E171E7AA2250017C334 /* BudgetsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD98E161E7AA2250017C334 /* BudgetsTest.swift */; };
 		14845eab1faa2b1528a538ff /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1A95B91E4B5E5300B03F12 /* Curry.framework */; };
 		19fe892539bc4e20dfcc9d20 /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A95C91E4E01FC00B03F12 /* AuthPlugin.swift */; };
 		222da3d8b5e0d56287d188d0 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C545FC61E486598004225E7 /* MeViewController.swift */; };
@@ -75,6 +76,8 @@
 		9550edf0700089223037f0ad /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C545FD71E49BCA1004225E7 /* Moya.framework */; };
 		97e6243cf636338fd4194361 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C545FD11E48B18F004225E7 /* MainTabBarViewController.swift */; };
 		99a31dfd06d6ec38a68b82bf /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 0C1A95CC1E4EC76100B03F12 /* Cartfile.private */; };
+		EBC6D04DCAFFA2057D06FB24 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6D80ADA8E08B87CFC678B /* DTO.swift */; };
+		EBC6D8B83F686E019CA3BAC6 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6D80ADA8E08B87CFC678B /* DTO.swift */; };
 		EBC6D92F1E3A9DBB80672EB7 /* Accounts.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6DAB39A17406061B40971 /* Accounts.model.swift */; };
 		aa823d3e52a3e8916a4f92d1 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0C545FC81E4869AC004225E7 /* Cartfile */; };
 		b010197f2148636eb5117101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC744BD1E2C6781007EC830 /* Main.storyboard */; };
@@ -159,8 +162,10 @@
 		0CD98E0A1E7A762F0017C334 /* Budget.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.model.swift; sourceTree = "<group>"; };
 		0CD98E0D1E7A7D730017C334 /* BudgetTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTest.swift; sourceTree = "<group>"; };
 		0CD98E0F1E7A81750017C334 /* Budget.dto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Budget.dto.swift; path = DTO/Budget.dto.swift; sourceTree = "<group>"; };
+		0CD98E161E7AA2250017C334 /* BudgetsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetsTest.swift; sourceTree = "<group>"; };
 		0c25ed4e90875cbf6e4dd15c /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		746D8FCE1E6EE6C8007D75D1 /* bbuddy-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bbuddy-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC6D80ADA8E08B87CFC678B /* DTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 		EBC6DAB39A17406061B40971 /* Accounts.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.model.swift; sourceTree = "<group>"; };
 		bea15760a047c1dd573eee03 /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +228,7 @@
 				0C1282F41E73B3ED00D72735 /* AccountsTest.swift */,
 				0C0AA8ED1E52AAAE008B4B00 /* Info.plist */,
 				0CD98E0D1E7A7D730017C334 /* BudgetTest.swift */,
+				0CD98E161E7AA2250017C334 /* BudgetsTest.swift */,
 			);
 			path = bbuddyTests;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			children = (
 				0C0AA8FD1E52B81B008B4B00 /* Account.dto.swift */,
 				0CD98E0F1E7A81750017C334 /* Budget.dto.swift */,
+				EBC6D80ADA8E08B87CFC678B /* DTO.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -524,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD98E171E7AA2250017C334 /* BudgetsTest.swift in Sources */,
 				0C1282F51E73B3ED00D72735 /* AccountsTest.swift in Sources */,
 				0C0AA9031E52E575008B4B00 /* GeneratedMocks.swift in Sources */,
 				0CD98E0E1E7A7D730017C334 /* BudgetTest.swift in Sources */,
@@ -554,6 +562,7 @@
 				0C545FD61E49AEAA004225E7 /* ApiDefinition.swift in Sources */,
 				0CC744BA1E2C6781007EC830 /* DashboardViewController.swift in Sources */,
 				EBC6D92F1E3A9DBB80672EB7 /* Accounts.model.swift in Sources */,
+				EBC6D8B83F686E019CA3BAC6 /* DTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +589,7 @@
 				f28f603fd97f30329dcb22f0 /* ApiDefinition.swift in Sources */,
 				440b96c67f742c7946d015ce /* DashboardViewController.swift in Sources */,
 				e7782ee485bec12ee3d2425d /* Accounts.model.swift in Sources */,
+				EBC6D04DCAFFA2057D06FB24 /* DTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

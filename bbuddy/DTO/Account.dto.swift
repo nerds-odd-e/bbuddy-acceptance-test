@@ -11,7 +11,7 @@ import Argo
 import Curry
 import Runes
 
-struct DTO{
+extension DTO{
     struct Account {
         var id: Int = 0
         var name: String = ""

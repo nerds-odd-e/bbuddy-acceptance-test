@@ -16,6 +16,7 @@ enum ApiDefinition {
     case addAccount(account: DTO.Account)
     case updateAccount(account: DTO.Account)
     case deleteAccount(account: DTO.Account)
+    case getBudgets
     case addBudget(budget: DTO.Budget)
 }
 
@@ -51,13 +52,13 @@ extension ApiDefinition: TargetType, Authorizable {
             return "/accounts"
         case .updateAccount(let account), .deleteAccount(let account):
             return "/accounts/\(account.id)"
-        case .addBudget:
+        case .getBudgets, .addBudget:
             return "/budgets"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .getUser, .getAccounts:
+        case .getUser, .getAccounts, .getBudgets:
             return .get
         case .signIn, .addAccount, .addBudget:
             return .post
@@ -69,7 +70,7 @@ extension ApiDefinition: TargetType, Authorizable {
     }
     var parameters: [String: Any]? {
         switch self {
-        case .getUser, .getAccounts, .deleteAccount:
+        case .getUser, .getAccounts, .deleteAccount, .getBudgets:
             return nil
         case .signIn(let email, let password):
             return ["email": email, "password": password]
@@ -102,6 +103,13 @@ extension ApiDefinition: TargetType, Authorizable {
             return data
         case .deleteAccount(let account), .updateAccount(let account), .addAccount(let account):
             return "{\"id\": \(account.id), \"name\": \(account.name), \"balance\": \(account.balance)}".utf8Encoded
+        case .getBudgets:
+            // Provided you have a file named accounts.json in your bundle.
+            guard let path = Bundle.main.path(forResource: "budgets", ofType: "json"),
+                  let data = Data(base64Encoded: path) else {
+                return Data()
+            }
+            return data
         case .addBudget(let budget):
             return "{\"id\": \(budget.id), \"month\": \(budget.month), \"amount\": \(budget.amount)}".utf8Encoded
         }

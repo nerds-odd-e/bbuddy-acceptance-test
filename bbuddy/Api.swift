@@ -119,4 +119,14 @@ class Api {
             action()
         }
     }
+
+    func getBudgets(_ action: @escaping ([DTO.Budget]) -> Void) {
+        request(.getBudgets) { [unowned me = self] response in
+            do {
+                action(try me.mapArray(response))
+            } catch {
+
+            }
+        }
+    }
 }
