@@ -1,9 +1,9 @@
 package com.odde.bbuddy.account.model;
 
-import com.odde.bbuddy.account.model.Accounts;
 import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
+import com.odde.bbuddy.common.JsonMapper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +23,8 @@ import static org.mockito.Mockito.verify;
 public class AddAccountTest {
 
     JsonBackend mockJsonBackend = mock(JsonBackend.class);
-    Accounts accounts = new Accounts(mockJsonBackend);
+    JsonMapper<Account> jsonMapper = new JsonMapper<>(Account.class);
+    Accounts accounts = new Accounts(mockJsonBackend, jsonMapper);
     Runnable mockRunnable = mock(Runnable.class);
     Account account = account("name", 1000);
 

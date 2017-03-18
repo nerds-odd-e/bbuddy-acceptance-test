@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.odde.bbuddy.account.viewmodel.PresentableAccounts;
+import com.odde.bbuddy.budget.viewmodel.PresentableBudgets;
+import com.odde.bbuddy.di.scope.ActivityScope;
 
 import org.robobinding.ViewBinder;
 import org.robobinding.binder.BinderFactoryBuilder;
 import org.robobinding.presentationmodel.PresentationModelChangeSupport;
+
+import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
@@ -21,19 +25,29 @@ public class ActivityModule {
         this.activity = activity;
     }
 
-    @Provides
+    @Provides @ActivityScope
     Context provideContext() {
         return activity;
     }
 
-    @Provides
+    @Provides @ActivityScope
+    Activity provideActivity() {
+        return activity;
+    }
+
+    @Provides @ActivityScope
     ViewBinder provideViewBinder() {
         return new BinderFactoryBuilder().build().createViewBinder(activity);
     }
 
-    @Provides
-    PresentationModelChangeSupport providePresentationModelChangeSupport(PresentableAccounts presentableAccounts) {
+    @Provides @ActivityScope @Named("accounts")
+    PresentationModelChangeSupport providePresentationModelChangeSupportForAccounts(PresentableAccounts presentableAccounts) {
         return new PresentationModelChangeSupport(presentableAccounts);
+    }
+
+    @Provides @ActivityScope @Named("budgets")
+    PresentationModelChangeSupport providePresentationModelChangeSupportForBudgets(PresentableBudgets presentableBudgets) {
+        return new PresentationModelChangeSupport(presentableBudgets);
     }
 
 }

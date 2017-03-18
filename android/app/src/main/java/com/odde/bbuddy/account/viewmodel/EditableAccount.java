@@ -2,14 +2,14 @@ package com.odde.bbuddy.account.viewmodel;
 
 import com.odde.bbuddy.account.model.Accounts;
 import com.odde.bbuddy.account.view.ShowAllAccountsNavigation;
+import com.odde.bbuddy.di.scope.ActivityScope;
 
 import org.robobinding.annotation.PresentationModel;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 @PresentationModel
-@Singleton
+@ActivityScope
 public class EditableAccount {
 
     private final Accounts accounts;

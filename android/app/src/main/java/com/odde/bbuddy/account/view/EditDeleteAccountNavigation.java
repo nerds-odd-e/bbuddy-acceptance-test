@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.odde.bbuddy.account.viewmodel.Account;
+import com.odde.bbuddy.di.scope.ActivityScope;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
+@ActivityScope
 public class EditDeleteAccountNavigation {
 
     private final Context context;

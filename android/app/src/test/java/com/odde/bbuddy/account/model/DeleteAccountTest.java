@@ -2,10 +2,10 @@ package com.odde.bbuddy.account.model;
 
 import android.support.annotation.NonNull;
 
-import com.odde.bbuddy.account.model.Accounts;
 import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
+import com.odde.bbuddy.common.JsonMapper;
 
 import org.json.JSONObject;
 import org.junit.Test;
@@ -23,7 +23,8 @@ public class DeleteAccountTest {
 
     public static final int ID = 1;
     JsonBackend mockJsonBackend = mock(JsonBackend.class);
-    Accounts accounts = new Accounts(mockJsonBackend);
+    JsonMapper<Account> jsonMapper = new JsonMapper<>(Account.class);
+    Accounts accounts = new Accounts(mockJsonBackend, jsonMapper);
     Runnable mockRunnable = mock(Runnable.class);
 
     @Test

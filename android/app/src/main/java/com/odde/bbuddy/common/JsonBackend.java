@@ -19,19 +19,14 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import static com.android.volley.toolbox.Volley.newRequestQueue;
 
-@Singleton
 public class JsonBackend {
 
     private final RequestQueue requestQueue;
     private final String serverUrl = BuildConfig.SERVER_URL;
     private final AuthenticationToken authenticationToken = new AuthenticationToken();
 
-    @Inject
     public JsonBackend(Context context) {
         requestQueue = newRequestQueue(context);
     }

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
+import com.odde.bbuddy.common.JsonMapper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,8 @@ public class EditAccountTest {
 
     private static final int ID = 1;
     JsonBackend mockJsonBackend = mock(JsonBackend.class);
-    Accounts accounts = new Accounts(mockJsonBackend);
+    JsonMapper<Account> jsonMapper = new JsonMapper<>(Account.class);
+    Accounts accounts = new Accounts(mockJsonBackend, jsonMapper);
     Runnable mockRunnable = mock(Runnable.class);
 
     @Test
