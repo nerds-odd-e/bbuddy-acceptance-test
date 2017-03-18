@@ -27,4 +27,13 @@ class Budget{
         let budgetToUpdate = DTO.Budget(id: id, month: month, amount: amount)
         api.addBudget(budgetToUpdate, to: action)
     }
+
+    class func from(_ dto: DTO.Budget) -> Budget! {
+        let budget = Budget()
+        budget.id = dto.id
+        budget.month = dto.month
+        budget.amount = dto.amount
+        return budget
+    }
 }
+

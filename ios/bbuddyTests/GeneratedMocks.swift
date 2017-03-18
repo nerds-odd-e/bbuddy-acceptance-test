@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: bbuddy/Api.swift at 2017-03-16 08:55:39 +0000
+// MARK: - Mocks generated from file: bbuddy/Api.swift at 2017-03-16 13:44:11 +0000
 
 //
 //  Api.swift
@@ -53,6 +53,10 @@ class MockApi: Api, Cuckoo.Mock {
         return manager.call("addBudget(_: DTO.Budget, to: @escaping () -> Void)", parameters: (budget, action), original: observed.map { o in return { (budget: DTO.Budget, action: @escaping () -> Void) in o.addBudget(budget, to: action) } })
     }
     
+    override func getBudgets(_ action: @escaping ([DTO.Budget]) -> Void) {
+        return manager.call("getBudgets(_: @escaping ([DTO.Budget]) -> Void)", parameters: (action), original: observed.map { o in return { (action: @escaping ([DTO.Budget]) -> Void) in o.getBudgets(action) } })
+    }
+    
     struct __StubbingProxy_Api: Cuckoo.StubbingProxy {
         private let manager: Cuckoo.MockManager
         
@@ -88,6 +92,11 @@ class MockApi: Api, Cuckoo.Mock {
         func addBudget<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(_ budget: M1, to action: M2) -> Cuckoo.StubNoReturnFunction<(DTO.Budget, () -> Void)> where M1.MatchedType == DTO.Budget, M2.MatchedType == () -> Void {
             let matchers: [Cuckoo.ParameterMatcher<(DTO.Budget, () -> Void)>] = [wrap(matchable: budget) { $0.0 }, wrap(matchable: action) { $0.1 }]
             return Cuckoo.StubNoReturnFunction(stub: manager.createStub("addBudget(_: DTO.Budget, to: @escaping () -> Void)", parameterMatchers: matchers))
+        }
+        
+        func getBudgets<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.StubNoReturnFunction<(([DTO.Budget]) -> Void)> where M1.MatchedType == ([DTO.Budget]) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(([DTO.Budget]) -> Void)>] = [wrap(matchable: action) { $0 }]
+            return Cuckoo.StubNoReturnFunction(stub: manager.createStub("getBudgets(_: @escaping ([DTO.Budget]) -> Void)", parameterMatchers: matchers))
         }
     }
     
@@ -137,6 +146,12 @@ class MockApi: Api, Cuckoo.Mock {
             let matchers: [Cuckoo.ParameterMatcher<(DTO.Budget, () -> Void)>] = [wrap(matchable: budget) { $0.0 }, wrap(matchable: action) { $0.1 }]
             return manager.verify("addBudget(_: DTO.Budget, to: @escaping () -> Void)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
+        
+        @discardableResult
+        func getBudgets<M1: Cuckoo.Matchable>(_ action: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == ([DTO.Budget]) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(([DTO.Budget]) -> Void)>] = [wrap(matchable: action) { $0 }]
+            return manager.verify("getBudgets(_: @escaping ([DTO.Budget]) -> Void)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
     }
 }
 
@@ -163,6 +178,10 @@ class ApiStub: Api {
     }
     
     override func addBudget(_ budget: DTO.Budget, to action: @escaping () -> Void) {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    override func getBudgets(_ action: @escaping ([DTO.Budget]) -> Void) {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
 }
