@@ -3,6 +3,7 @@ package com.odde.bbuddy.account.viewmodel;
 import com.odde.bbuddy.account.model.Accounts;
 import com.odde.bbuddy.account.view.EditDeleteAccountNavigation;
 import com.odde.bbuddy.common.Consumer;
+import com.odde.bbuddy.di.scope.ActivityScope;
 
 import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.annotation.PresentationModel;
@@ -14,29 +15,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
+import javax.inject.Named;
 
 import dagger.Lazy;
 
 @PresentationModel
-@Singleton
+@ActivityScope
 public class PresentableAccounts implements HasPresentationModelChangeSupport {
 
     private final Lazy<PresentationModelChangeSupport> changeSupportLazyLoader;
+    private final Accounts accounts;
     private final EditDeleteAccountNavigation editDeleteAccountNavigation;
     private final List<Account> allAccounts = new ArrayList<>();
 
     @Inject
-    public PresentableAccounts(Accounts accounts, EditDeleteAccountNavigation editDeleteAccountNavigation, Lazy<PresentationModelChangeSupport> changeSupportLazyLoader) {
+    public PresentableAccounts(Accounts accounts, EditDeleteAccountNavigation editDeleteAccountNavigation, @Named("accounts") Lazy<PresentationModelChangeSupport> changeSupportLazyLoader) {
+        this.accounts = accounts;
         this.editDeleteAccountNavigation = editDeleteAccountNavigation;
         this.changeSupportLazyLoader = changeSupportLazyLoader;
-        accounts.processAllAccounts(new Consumer<List<Account>>() {
-            @Override
-            public void accept(List<Account> list) {
-                allAccounts.addAll(list);
-                changeSupport().refreshPresentationModel();
-            }
-        });
+        refresh();
     }
 
     private PresentationModelChangeSupport changeSupport() {
@@ -59,5 +56,16 @@ public class PresentableAccounts implements HasPresentationModelChangeSupport {
     @Override
     public PresentationModelChangeSupport getPresentationModelChangeSupport() {
         return changeSupport();
+    }
+
+    public void refresh() {
+        accounts.processAllAccounts(new Consumer<List<Account>>() {
+            @Override
+            public void accept(List<Account> list) {
+                allAccounts.clear();
+                allAccounts.addAll(list);
+                changeSupport().refreshPresentationModel();
+            }
+        });
     }
 }

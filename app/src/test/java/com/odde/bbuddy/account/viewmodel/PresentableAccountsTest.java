@@ -32,6 +32,7 @@ public class PresentableAccountsTest {
     Lazy<PresentationModelChangeSupport> mockChangeSupportLazyLoader = mock(Lazy.class);
     PresentationModelChangeSupport mockPresentationModelChangeSupport = mock(PresentationModelChangeSupport.class);
     private final Account account = new Account() {{ setId(1); setName("name"); setBalanceBroughtForward(100); }};
+    private PresentableAccounts presentableAccounts = createPresentableAccounts();
 
     @Before
     public void given_lazy_loader_will_return_change_support() {
@@ -46,10 +47,10 @@ public class PresentableAccountsTest {
     }
 
     @Test
-    public void refresh_presentation_model() {
+    public void refresh() {
         given_accounts_will_return(asList(account));
 
-        createPresentableAccounts();
+        presentableAccounts.refresh();
 
         verify(mockPresentationModelChangeSupport).refreshPresentationModel();
     }

@@ -3,10 +3,10 @@ package com.odde.bbuddy.account.model;
 import android.support.annotation.NonNull;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.odde.bbuddy.account.model.Accounts;
 import com.odde.bbuddy.account.viewmodel.Account;
 import com.odde.bbuddy.common.Consumer;
 import com.odde.bbuddy.common.JsonBackend;
+import com.odde.bbuddy.common.JsonMapper;
 
 import org.json.JSONArray;
 import org.junit.Test;
@@ -28,7 +28,8 @@ import static org.mockito.Mockito.verify;
 public class AllAccountsTest {
 
     JsonBackend mockJsonBackend = mock(JsonBackend.class);
-    Accounts accounts = new Accounts(mockJsonBackend);
+    JsonMapper<Account> jsonMapper = new JsonMapper<>(Account.class);
+    Accounts accounts = new Accounts(mockJsonBackend, jsonMapper);
     Consumer mockConsumer = mock(Consumer.class);
 
     @Test

@@ -1,4 +1,4 @@
-package com.odde.bbuddy.account.view;
+package com.odde.bbuddy.budget.view;
 
 import android.app.Activity;
 
@@ -7,12 +7,12 @@ import com.odde.bbuddy.di.scope.ActivityScope;
 import javax.inject.Inject;
 
 @ActivityScope
-public class ShowAllAccountsNavigation {
+public class ShowAllBudgetsNavigation {
 
     private final Activity activity;
 
     @Inject
-    public ShowAllAccountsNavigation(Activity activity) {
+    public ShowAllBudgetsNavigation(Activity activity) {
         this.activity = activity;
     }
 

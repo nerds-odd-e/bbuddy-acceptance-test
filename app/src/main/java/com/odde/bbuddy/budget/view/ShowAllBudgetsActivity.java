@@ -1,4 +1,4 @@
-package com.odde.bbuddy.account.view;
+package com.odde.bbuddy.budget.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.odde.bbuddy.R;
-import com.odde.bbuddy.account.viewmodel.PresentableAccounts;
+import com.odde.bbuddy.budget.viewmodel.PresentableBudgets;
 
 import org.robobinding.ViewBinder;
 
@@ -16,11 +16,10 @@ import javax.inject.Inject;
 
 import static com.odde.bbuddy.di.component.ActivityComponentFactory.createActivityComponentBy;
 
-
-public class ShowAllAccountsActivity extends Fragment {
+public class ShowAllBudgetsActivity extends Fragment {
 
     @Inject
-    PresentableAccounts presentableAccounts;
+    PresentableBudgets presentableBudgets;
 
     @Inject
     ViewBinder viewBinder;
@@ -34,12 +33,12 @@ public class ShowAllAccountsActivity extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return viewBinder.inflateAndBindWithoutAttachingToRoot(R.layout.activity_adapter_view, presentableAccounts, container);
+        return viewBinder.inflateAndBindWithoutAttachingToRoot(R.layout.activity_budgets, presentableBudgets, container);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        presentableAccounts.refresh();
+        presentableBudgets.refresh();
     }
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.odde.bbuddy.account.view.AddAccountActivity;
+import com.odde.bbuddy.budget.view.AddBudgetActivity;
 
 public class DashboardActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
@@ -19,6 +20,7 @@ public class DashboardActivity extends AppCompatActivity implements TabLayout.On
 
     //This is our viewPager
     private ViewPager viewPager;
+    private TextView add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +33,18 @@ public class DashboardActivity extends AppCompatActivity implements TabLayout.On
         //Adding the tabs using addTab() method
         tabLayout.addTab(tabLayout.newTab().setText("Dashboard"));
         tabLayout.addTab(tabLayout.newTab().setText("Accounts"));
+        tabLayout.addTab(tabLayout.newTab().setText("Budgets"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         //Initializing viewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         //Creating our pager adapter
-        DashboardPager adapter = new DashboardPager(getSupportFragmentManager(), tabLayout.getTabCount());
+        DashboardPager adapter = new DashboardPager(getSupportFragmentManager(), tabLayout.getTabCount(), this);
 
         //Adding adapter to pager
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(tabLayout.getTabCount());
 
         //Adding onTabSelectedListener to swipe views
         tabLayout.setOnTabSelectedListener(this);
@@ -54,19 +58,31 @@ public class DashboardActivity extends AppCompatActivity implements TabLayout.On
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 
-        TextView add = (TextView) mCustomView.findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AddAccountActivity.class));
-            }
-        });
+        add = (TextView) mCustomView.findViewById(R.id.add);
 
         tabLayout.getTabAt(getIntent().getIntExtra("tabPosition", 0)).select();
     }
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
+        switch (tab.getPosition()) {
+            case 1:
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(), AddAccountActivity.class));
+                    }
+                });
+                break;
+            case 2:
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(), AddBudgetActivity.class));
+                    }
+                });
+                break;
+        }
         viewPager.setCurrentItem(tab.getPosition());
     }
 
