@@ -67,3 +67,4 @@ elsif ENV['PLATFORM'] == 'android'
   require_relative '../z_android/support/app_life_cycle_hooks'
 end
 
+World(Bbuddy::AcceptanceTest::Drivers)
