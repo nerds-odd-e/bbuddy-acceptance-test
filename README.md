@@ -1,7 +1,7 @@
 This is the repo for the exercise project to be developed in Shanghai team's Modern Mobile Development course
 
 # Installation
-Please install the following tools for this project. The latest version should be fine unless specific version is listed. Just a kindly reminder, please use a Mac if you want to run acceptance tests for both Android and iOS. If not, you can only run the Android part.
+Please install the following tools for this project. The latest version should be fine unless specific version is listed. Just a kindly reminder, please use a Mac if you want to run acceptance tests for not only Android and Angular, but also iOS.
 
 * git
 * mysql
@@ -31,6 +31,9 @@ Use git to clone this project into a folder. Then in this folder, run the comman
     * Download calabash framework `calabash-ios download; cp calabash.framework path/to/bbuddy-ios`
     * Use Xcode to build the bbuddy-cal target
     * Run acceptance tests `cucumber -p ios`
+* Run acceptance tests for Angular
+    * Make the angular project workable first
+    * Run acceptance tests `cucumber -p angular`
 
 # Tips for Mac installation
 Here are some tips for Mac installations.
