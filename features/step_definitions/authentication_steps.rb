@@ -7,5 +7,5 @@ When(/^login with user (email "[^"]*" and password "[^"]*")$/) do |user|
 end
 
 Then(/^login failed$/) do
-  LoginPage.open.assert_login_failed
+  LoginPage.new.assert_login_failed
 end
