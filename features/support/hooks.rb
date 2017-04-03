@@ -1,5 +1,4 @@
 require_relative('../data/authentication')
-require_relative('../server/rails_server')
 
 start_server
 

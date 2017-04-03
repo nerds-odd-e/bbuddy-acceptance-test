@@ -60,11 +60,17 @@ if ENV['PLATFORM'] == 'ios'
   require 'calabash-cucumber/cucumber'
   require_relative '../z_ios/driver/calabash_driver'
   require_relative '../z_ios/support/01_launch'
+  require_relative('../server/rails_server')
 elsif ENV['PLATFORM'] == 'android'
   require 'calabash-android/cucumber'
   require_relative '../z_android/driver/calabash_driver'
   require_relative '../z_android/support/app_installation_hooks'
   require_relative '../z_android/support/app_life_cycle_hooks'
+  require_relative('../server/rails_server')
+elsif ENV['PLATFORM'] == 'angular'
+  require('capybara/cucumber')
+  require_relative('../z_angular/server/angular_server')
+  require_relative('../z_angular/driver/capybara_driver')
 end
 
 World(Bbuddy::AcceptanceTest::Drivers)

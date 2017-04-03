@@ -222,6 +222,7 @@ DEPENDENCIES
   byebug
   calabash-android (~> 0.9.0)
   calabash-cucumber (~> 0.20.4)
+  capybara (~> 2.12.0)
   cucumber-rails
   database_cleaner
   devise
