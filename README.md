@@ -22,13 +22,13 @@ Use git to clone this project into a folder. Then in this folder, run the comman
 * Common setup
     * Create a default mysql dba user `mysql -u root -p < sql/create_default_dba.sql`
     * Ruby setup `gem install bundler; bundle install; rake db:create; rails db:migrate`
+    * server setup `./script/add_api_for_acceptance_tests.sh path/to/bbuddy-api`
 * Run acceptance tests for Android
     * Start the simulator from Genymotion
-    * Build Apk and Run All Unit Tests `android/gradlew clean build -p android`
-    * Run acceptance tests `calabash-android run android/app/build/outputs/apk/app-debug.apk -p android`
+    * Build Apk and Run All Unit Tests
+    * Run acceptance tests `calabash-android run path/to/apk -p android`
 * Run acceptance tests for iOS
-    * Download calabash framework `cd ios; calabash-ios download`
-    * Install dependencies by Carthage `cd ios; carthage update`
+    * Download calabash framework `calabash-ios download; cp calabash.framework path/to/bbuddy-ios`
     * Use Xcode to build the bbuddy-cal target
     * Run acceptance tests `cucumber -p ios`
 

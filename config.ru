@@ -1,1 +1,1 @@
-api/config.ru
+../bbuddy-api/config.ru

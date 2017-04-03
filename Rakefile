@@ -1,1 +1,1 @@
-api/Rakefile
+../bbuddy-api/Rakefile

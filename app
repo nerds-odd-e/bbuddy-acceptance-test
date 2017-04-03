@@ -1,1 +1,1 @@
-api/app
+../bbuddy-api/app
