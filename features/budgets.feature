@@ -1,4 +1,4 @@
-@login
+@login @ignore_angular
 Feature: Budgets
 
   Scenario: add budget

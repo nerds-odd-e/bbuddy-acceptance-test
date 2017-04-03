@@ -6,5 +6,5 @@ android: PLATFORM=android -r features/support -r features/data -r features/pages
 
 ios: PLATFORM=ios -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_ios/pages -r features/z_ios/step_definitions
 
-angular: PLATFORM=angular -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_angular/server -r features/z_angular/driver -r features/z_angular/pages
+angular: PLATFORM=angular --tags ~@ignore_angular -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_angular/server -r features/z_angular/driver -r features/z_angular/pages -r features/z_angular/step_definitions
 
