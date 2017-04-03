@@ -5,7 +5,7 @@ Please install the following tools for this project. The latest version should b
 
 * git
 * mysql
-* ruby 2.4 (2.0+ versions should be ok)
+* [Rvm](http://rvm.io/) and ruby 2.4 (2.0+ versions should be ok)
 * Rubymine (or any editor you preferred for ruby development)
 * Genymotion (or any Android simulator you preferred)
     * Please install a simulator since there is no pre-installed simulator, e.g. Google Galaxy Nexus-4.1.1-API 16-720 * 1280
@@ -37,4 +37,3 @@ Here are some tips for Mac installations.
 * [Homebrew](http://brew.sh/) is recommended for Mac tool and app installations
     * Tools and services can be installed via, for example, `brew install git`
     * Applications can be installed via, for example, `brew cask install genymotion`
-* [Rvm](http://rvm.io/) is recommended for handling ruby environment
