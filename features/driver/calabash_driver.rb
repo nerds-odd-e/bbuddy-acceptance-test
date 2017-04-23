@@ -6,6 +6,7 @@ module Bbuddy module AcceptanceTest
     end
 
     def touch(query, options={})
+      wait_for_element_exists(query, options)
       super(marked_ui_query(query), options)
     end
 
