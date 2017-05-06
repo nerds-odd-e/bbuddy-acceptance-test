@@ -71,6 +71,10 @@ elsif ENV['PLATFORM'] == 'angular'
   require('capybara/cucumber')
   require_relative('../z_angular/server/angular_server')
   require_relative('../z_angular/driver/capybara_driver')
+elsif ENV['PLATFORM'] == 'react'
+  require('capybara/cucumber')
+  require_relative('../z_react/server/react_server')
+  require_relative('../z_angular/driver/capybara_driver')
 end
 
 World(Bbuddy::AcceptanceTest::Drivers)
