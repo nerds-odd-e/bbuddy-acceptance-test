@@ -7,5 +7,4 @@ ios: PLATFORM=ios -r features/support -r features/data -r features/pages -r feat
 
 angular: PLATFORM=angular --tags ~@ignore_angular -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_angular/server -r features/z_angular/driver -r features/z_angular/pages -r features/z_angular/step_definitions
 
-react: PLATFORM=react -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_react/server -r features/z_angular/driver -r features/z_react/pages -r features/z_angular/step_definitions
-
+react: PLATFORM=react --tags ~@ignore_react -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_react/server -r features/z_angular/driver -r features/z_react/pages -r features/z_angular/step_definitions

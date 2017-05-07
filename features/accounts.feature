@@ -18,7 +18,7 @@ Feature: Accounts
       | name | balance |
       | CMB  | 1000    |
 
-  @ignore_angular
+  @ignore_angular @ignore_react
   Scenario: edit account
     Given exists the following accounts
       | name | balance |
@@ -28,7 +28,7 @@ Feature: Accounts
       | name | balance |
       | HSBC | 2000    |
 
-  @ignore_angular
+  @ignore_angular @ignore_react
   Scenario: delete account
     Given exists the following accounts
       | name | balance |

@@ -16,7 +16,11 @@ module Bbuddy module AcceptanceTest
     end
 
     def touch(query, options={})
-      click_on query
+      begin
+        click_on query
+      rescue Capybara::ElementNotFound
+        find("##{query}").click
+      end
     end
 
     def wait_for_text_does_not_exist(text)
@@ -40,7 +44,7 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_text(text)
-      page.assert_text(text)
+      page.assert_text(/#{text}/i)
     end
 
     def visit(url)
