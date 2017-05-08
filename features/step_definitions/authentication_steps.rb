@@ -11,7 +11,7 @@ Then(/^login failed$/) do
 end
 
 Then(/^there is an error message for empty email$/) do
-  LoginPage.new.assert_message_showed('email may not be blank')
+  LoginPage.new.assert_message_showed('email may not be empty')
 end
 
 Then(/^there is an error message for empty password$/) do
