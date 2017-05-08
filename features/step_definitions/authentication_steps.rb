@@ -9,3 +9,10 @@ end
 Then(/^login failed$/) do
   LoginPage.new.assert_login_failed
 end
+
+Then(/^there is an error message for empty email$/) do
+  LoginPage.new.assert_message_showed('email may not be blank')
+end
+
+Then(/^there is an error message for empty password$/) do
+end
