@@ -10,10 +10,6 @@ Then(/^login failed$/) do
   LoginPage.new.assert_login_failed
 end
 
-Then(/^there is an error message for empty email$/) do
-  LoginPage.new.assert_message_showed('email may not be empty')
-end
-
-Then(/^there is an error message for empty password$/) do
-  LoginPage.new.assert_message_showed('password may not be empty')
+Then(/^there is an error message for empty ([^"]*)$/) do |field_name|
+  wait_for_text("#{field_name} may not be empty")
 end
