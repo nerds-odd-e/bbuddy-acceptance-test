@@ -35,3 +35,9 @@ Feature: Accounts
       | CMB  | 1000    |
     When delete this account
     Then you will not see it in the list
+
+  @ignore_ios @ignore_angular @ignore_react
+  Scenario: both name and balance may not be empty
+    When add account with empty name and balance
+    Then there is an error message for empty name
+    And there is an error message for empty balance
