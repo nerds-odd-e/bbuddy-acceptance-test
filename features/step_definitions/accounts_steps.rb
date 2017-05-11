@@ -14,7 +14,7 @@ When(/^add account as (name \w+ and balance \d+)$/) do |account|
   AccountsPage.open.go_to_add_account.add_account(account)
 end
 
-When(/^add account with empty name and balance$/) do
+When(/^add account with empty name$/) do
   step 'show all accounts'
   AccountsPage.open.go_to_add_account.add_account(nil)
 end

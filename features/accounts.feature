@@ -37,7 +37,11 @@ Feature: Accounts
     Then you will not see it in the list
 
   @ignore_ios @ignore_angular @ignore_react
-  Scenario: both name and balance may not be empty
-    When add account with empty name and balance
+  Scenario: name may not be empty
+    When add account with empty name
     Then there is an error message for empty name
-    And there is an error message for empty balance
+
+  @ignore_ios @ignore_angular @ignore_react
+  Scenario: name may not be longer than 50 characters
+    When add account as name toooooooooooooooooooooooooooooooooooooooooooooolong and balance 100
+    Then there is an error message for name can't be longer than 50
