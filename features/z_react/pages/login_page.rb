@@ -1,7 +1,7 @@
 class LoginPage < PageBase
 
   def await
-    visit 'http://localhost:8100'
+    visit 'http://localhost:8100/#/signin'
     self
   end
 
