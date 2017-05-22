@@ -4,7 +4,7 @@ def start_server
   @rails_pid = spawn({'RAILS_ENV' => 'test'}, 'rails s -p 4000')
   react_folder = ENV['REACT'] ? ENV['REACT'] : '../bbuddy-react'
   @gulp_pid = spawn("gulp server --cwd #{react_folder} --production")
-  sleep 10
+  sleep 2
 end
 
 def stop_server
