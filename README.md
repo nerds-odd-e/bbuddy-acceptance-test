@@ -5,16 +5,22 @@ Please install the following tools for this project. The latest version should b
 
 * git
 * mysql
-* [Rvm](http://rvm.io/) and ruby 2.4 (2.0+ versions should be ok)
+* [Rvm](http://rvm.io/) and ruby 2.4
 * Rubymine (or any editor you preferred for ruby development)
-* Genymotion (or any Android simulator you preferred)
-    * Please install a simulator since there is no pre-installed simulator, e.g. Google Galaxy Nexus-4.1.1-API 16-720 * 1280
-* [Carthage](https://github.com/Carthage/Carthage)
-* Xcode 8.2.1 (latest version)
-    * Please make sure there is at least one simulator installed (iOS 10.2 should be installed already)
-    * After install the latest Xcode, please run `xcode-select --install` to install some required libraries 
-* Android Studio
-    * Please install the missing Android SDK as suggested by Android Studio
+* React related installation, please refer to [bbuddy-react](https://github.com/nerds-odd-e/bbuddy-react) for more information
+    * [Yarn](https://yarnpkg.com/en/)
+* Angular related installation, please refer to [bbuddy-angular](https://github.com/nerds-odd-e/bbuddy-angular) for more information
+    * [Yarn](https://yarnpkg.com/en/)
+* Android related installation, please refer to [bbuddy-android](https://github.com/nerds-odd-e/bbuddy-android) for more information
+    * Genymotion (or any Android simulator you preferred)
+        * Please install a simulator since there is no pre-installed simulator, e.g. Google Galaxy Nexus-4.1.1-API 16-720 * 1280
+    * Android Studio
+        * Please install the missing Android SDK as suggested by Android Studio
+* iOS related installation, please refer to [bbuddy-ios](https://github.com/nerds-odd-e/bbuddy-ios) for more information
+    * [Carthage](https://github.com/Carthage/Carthage)
+    * Xcode 8.2.1 (latest version)
+        * Please make sure there is at least one simulator installed (iOS 10.2 should be installed already)
+        * After install the latest Xcode, please run `xcode-select --install` to install some required libraries 
 
 # Setup Command Line Development Environment
 Use git to clone this project into a folder. Then in this folder, run the command below in order.
@@ -40,3 +46,7 @@ Here are some tips for Mac installations.
 * [Homebrew](http://brew.sh/) is recommended for Mac tool and app installations
     * Tools and services can be installed via, for example, `brew install git`
     * Applications can be installed via, for example, `brew cask install genymotion`
+    
+# Tips for Windows installation
+Here are some tips for Windows installations.
+* Please consider to install [Babun](http://babun.github.io/) and then install command line tools like git and rvm in it
