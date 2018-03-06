@@ -75,6 +75,11 @@ elsif ENV['PLATFORM'] == 'react'
   require('capybara/cucumber')
   require_relative('../z_react/server/react_server')
   require_relative('../z_angular/driver/capybara_driver')
+elsif ENV['PLATFORM'] == 'wepy'
+  require('appium_lib')
+  require_relative('../z_wepy/server/wepy_server')
+  require_relative('../z_wepy/support/launch')
+  require_relative('../z_wepy/driver/appium_driver')
 end
 
 World(Bbuddy::AcceptanceTest::Drivers)

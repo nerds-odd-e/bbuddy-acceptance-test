@@ -1,0 +1,13 @@
+[caps]
+platformName = "Android"
+deviceName = "Nexus 7"
+appActivity = ".ui.LauncherUI"
+appPackage = "com.tencent.mm"
+app = ""
+fastReset = false
+fullReset = false
+noReset = true
+
+[appium_lib]
+sauce_username = false
+sauce_access_key = false
