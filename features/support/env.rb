@@ -77,9 +77,9 @@ elsif ENV['PLATFORM'] == 'react'
   require_relative('../z_angular/driver/capybara_driver')
 elsif ENV['PLATFORM'] == 'wepy'
   require('appium_lib')
-  require_relative('../z_wepy/server/wepy_server')
   require_relative('../z_wepy/support/launch')
   require_relative('../z_wepy/driver/appium_driver')
+  require_relative('../server/rails_server')
 end
 
 World(Bbuddy::AcceptanceTest::Drivers)

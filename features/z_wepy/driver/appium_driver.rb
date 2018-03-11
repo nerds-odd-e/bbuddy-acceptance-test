@@ -32,6 +32,7 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_text(text)
+      $driver.find_element :xpath, "//*[contains(@text,'#{text}')]"
     end
 
     def enter_text(query, text)
