@@ -6,6 +6,7 @@ module Bbuddy module AcceptanceTest
     end
 
     def clear_then_enter_text(marked, text)
+      enter_text(marked, text)
     end
 
     def touch(query, options={})
@@ -16,13 +17,15 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_element_exists(query, options={})
-      $driver.find_element :xpath, "//*[@text='#{query}']"
+      $driver.find_element :xpath, "//*[@text='#{query}' or @content-desc='#{query}']"
     end
 
     def wait_for_element_does_not_exist(query, options={})
     end
 
     def wait_for_text_and_then_touch(text)
+      wait_for_text(text)
+      touch(text)
     end
 
     def marked_ui_query(query)
@@ -32,7 +35,7 @@ module Bbuddy module AcceptanceTest
     end
 
     def wait_for_text(text)
-      $driver.find_element :xpath, "//*[contains(@text,'#{text}')]"
+      $driver.find_element :xpath, "//*[contains(@text,'#{text}') or contains(@content-desc,'#{text}')]"
     end
 
     def enter_text(query, text)
