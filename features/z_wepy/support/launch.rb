@@ -8,7 +8,8 @@ Before {
   $driver.start_driver
   touch '发现'
   touch '小程序'
-  touch '开发版'
+  touch 'gh_db5296cbfdab'
+  sleep 2
 }
 
 After {

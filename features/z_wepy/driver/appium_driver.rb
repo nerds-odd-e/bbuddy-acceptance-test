@@ -16,9 +16,10 @@ module Bbuddy module AcceptanceTest
       $driver.set_wait 2
       begin
         wait_for_text text
-        fail "#{text} exists"
       rescue
+        return
       end
+      fail "#{text} exists"
     end
 
     def wait_for_element_exists(query, options={})
