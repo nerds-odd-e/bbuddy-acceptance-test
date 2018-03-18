@@ -10,7 +10,7 @@ Feature: Authentication
     When login with user email "joseph.yao.ruozhou@gmail.com" and password "wrong_password"
     Then login failed
 
-  @ignore_ios @ignore_angular @ignore_react @ignore_wepy
+  @ignore_ios @ignore_angular @ignore_react @ignore_wepy @ignore_android
   Scenario: Both email and password may not be empty
     When login with user email "" and password ""
     Then there is an error message for empty email

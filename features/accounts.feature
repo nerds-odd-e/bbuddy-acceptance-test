@@ -36,12 +36,12 @@ Feature: Accounts
     When delete this account
     Then you will not see it in the list
 
-  @ignore_ios @ignore_angular @ignore_react @ignore_wepy
+  @ignore_ios @ignore_angular @ignore_react @ignore_wepy @ignore_android
   Scenario: name may not be empty
     When add account with empty name
     Then there is an error message for empty name
 
-  @ignore_ios @ignore_angular @ignore_react @ignore_wepy
+  @ignore_ios @ignore_angular @ignore_react @ignore_wepy @ignore_android
   Scenario: name may not be longer than 50 characters
     When add account as name toooooooooooooooooooooooooooooooooooooooooooooolong and balance 100
     Then there is an error message for name can't be longer than 50
