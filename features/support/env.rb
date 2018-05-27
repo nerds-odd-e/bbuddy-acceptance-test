@@ -57,9 +57,9 @@ ActionController::Base.allow_rescue = false
 # Cucumber::Rails::Database.javascript_strategy = :truncation
 
 if ENV['PLATFORM'] == 'ios'
-  require 'calabash-cucumber/cucumber'
-  require_relative '../z_ios/driver/calabash_driver'
-  require_relative '../z_ios/support/01_launch'
+  require 'appium_lib'
+  require_relative '../z_ios/support/launch'
+  require_relative '../z_ios/driver/appium_driver'
   require_relative('../server/rails_server')
 elsif ENV['PLATFORM'] == 'android'
   require 'calabash-android/cucumber'

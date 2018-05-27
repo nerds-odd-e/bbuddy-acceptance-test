@@ -12,6 +12,7 @@ Feature: Accounts
       | CMB  | 1000    |
       | HSBC | 0       |
 
+  @ignore_ios
   Scenario: add account
     When add account as name CMB and balance 1000
     Then you will see all accounts as below
@@ -31,8 +32,8 @@ Feature: Accounts
   @ignore_angular @ignore_react
   Scenario: delete account
     Given exists the following accounts
-      | name | balance |
-      | CMB  | 1000    |
+      | name          | balance |
+      | Shanghai Bank | 1000    |
     When delete this account
     Then you will not see it in the list
 

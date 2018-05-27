@@ -3,7 +3,7 @@
 ---
 android: PLATFORM=android --tags ~@ignore_android -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_android/pages -r features/z_android/step_definitions
 
-ios: PLATFORM=ios --tags ~@ignore_ios -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_ios/pages -r features/z_ios/step_definitions
+ios: PLATFORM=ios --tags ~@ignore_ios -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/z_ios/pages -r features/z_ios/step_definitions
 
 angular: PLATFORM=angular --tags ~@ignore_angular -r features/support -r features/data -r features/pages -r features/server -r features/step_definitions -r features/driver -r features/z_angular/server -r features/z_angular/driver -r features/z_angular/pages -r features/z_angular/step_definitions
 
