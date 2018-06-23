@@ -1,1 +1,0 @@
-../bbuddy-api/app
