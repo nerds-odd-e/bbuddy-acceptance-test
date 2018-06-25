@@ -18,3 +18,5 @@ calabash.framework
 
 # Ignore Intellij project files
 .idea
+
+.byebug_history

@@ -1,9 +1,9 @@
 Given(/^there is a user (email "[^"]*" and password "[^"]*")$/) do |user|
-  user.save
+  Api.new.sign_up user
 end
 
 When(/^login with user (email "[^"]*" and password "[^"]*")$/) do |user|
-  LoginPage.open.login(user)
+  LoginPage.open.login(OpenStruct.new user)
 end
 
 Then(/^login failed$/) do

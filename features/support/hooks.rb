@@ -11,7 +11,9 @@ Before do |scenario|
 end
 
 Before ('@login') do
-  LoginPage.open.login(User.create!(email: "joseph.yao.ruozhou@gmail.com", password: "123456", password_confirmation: "123456"))
+  user = {email: "joseph.yao.ruozhou@gmail.com", password: "123456"}
+  Api.new.sign_up(user)
+  LoginPage.open.login(OpenStruct.new(user))
 end
 
 Around do |scenario, block|
