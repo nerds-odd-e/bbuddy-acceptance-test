@@ -9,7 +9,7 @@ class AddAccountPage < PageBase
   def add_account(account)
     unless account.nil?
       clear_then_enter_text('name', account.name)
-      clear_then_enter_text('balanceBroughtForward', account.balance)
+      clear_then_enter_text('balance', account.balance)
     end
     touch(marked)
   end

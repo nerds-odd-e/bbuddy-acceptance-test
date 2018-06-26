@@ -7,8 +7,8 @@ class LoginPage < PageBase
   end
 
   def login(user)
-    enter_text('Username', user.email)
-    enter_text('Password', user.password)
+    enter_text('email', user.email)
+    enter_text('password', user.password)
     touch('Login')
   end
 
