@@ -14,5 +14,5 @@ gem 'capybara', '~> 2.12.0'
 gem 'selenium-webdriver', '~> 3.5.0'
 
 
-gem 'calabash-android', '~> 0.9.0' if ENV.key? 'ANDRIOD_HOME'
+gem 'calabash-android', '~> 0.9.0' if ENV.key? 'ANDROID_HOME'
 gem 'appium_lib', '~> 9.12.0'
