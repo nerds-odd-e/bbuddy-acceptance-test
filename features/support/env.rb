@@ -68,13 +68,8 @@ elsif ENV['PLATFORM'] == 'android'
   require_relative '../z_android/support/app_installation_hooks'
   require_relative '../z_android/support/app_life_cycle_hooks'
   require_relative('../server/rails_server')
-elsif ENV['PLATFORM'] == 'angular'
+elsif ENV['PLATFORM'] == 'angular' || ENV['PLATFORM'] == 'react'
   require('capybara/cucumber')
-  require_relative('../z_angular/server/angular_server')
-  require_relative('../z_angular/driver/capybara_driver')
-elsif ENV['PLATFORM'] == 'react'
-  require('capybara/cucumber')
-  require_relative('../z_react/server/react_server')
   require_relative('../z_angular/driver/capybara_driver')
 elsif ENV['PLATFORM'] == 'wepy'
   require('appium_lib')
