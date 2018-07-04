@@ -27,8 +27,7 @@ Use git to clone this project into a folder. Then in this folder, run the comman
 
 * Common setup
     * Create a default mysql dba user `mysql -u root -p < sql/create_default_dba.sql`
-    * Ruby setup `gem install bundler; bundle install; rake db:create; rails db:migrate`
-    * server setup `./script/add_api_for_acceptance_tests.sh path/to/bbuddy-api`
+    * Ruby setup `gem install bundler; bundle install` 
 * Run acceptance tests for Android
     * Start the simulator from Genymotion
     * Build Apk and Run All Unit Tests
