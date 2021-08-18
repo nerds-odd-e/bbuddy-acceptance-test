@@ -13,6 +13,10 @@ module Bbuddy module AcceptanceTest
       $driver.find_element :xpath, "//*[@name='#{query}' and @visible='true']"
     end
 
+    def enter_text_by_value(value, text)
+      $driver.find_element(:predicate, "value==\"#{value}\"").send_keys(text)
+    end
+
     def enter_text(id, text)
       $driver.find_element(:id, id).send_keys(text)
     end

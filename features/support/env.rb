@@ -57,25 +57,6 @@
 require 'byebug'
 require 'ostruct'
 
-if ENV['PLATFORM'] == 'ios'
-  require 'appium_lib'
-  require_relative '../z_ios/support/launch'
-  require_relative '../z_ios/driver/appium_driver'
-  require_relative('../server/rails_server')
-elsif ENV['PLATFORM'] == 'android'
-  require 'calabash-android/cucumber'
-  require_relative '../z_android/driver/calabash_driver'
-  require_relative '../z_android/support/app_installation_hooks'
-  require_relative '../z_android/support/app_life_cycle_hooks'
-  require_relative('../server/rails_server')
-elsif ENV['PLATFORM'] == 'angular' || ENV['PLATFORM'] == 'react'
-  require('capybara/cucumber')
-  require_relative('../z_angular/driver/capybara_driver')
-elsif ENV['PLATFORM'] == 'wepy'
-  require('appium_lib')
-  require_relative('../z_wepy/support/launch')
-  require_relative('../z_wepy/driver/appium_driver')
-  require_relative('../server/rails_server')
-end
 
+require_relative '../driver/calabash_driver'
 World(Bbuddy::AcceptanceTest::Drivers)

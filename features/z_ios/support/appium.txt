@@ -1,7 +1,7 @@
 [caps]
 platformName = "iOS"
-platformVersion = "11.3"
-deviceName = "iPhone 7"
+platformVersion = "14.5"
+deviceName = "iPhone 11"
 automationName = "XCUITest"
-app = "/Users/josephyao/Library/Developer/Xcode/DerivedData/bbuddy-ednfxozcthaylxeghzbwttvnlydk/Build/Products/Debug-iphonesimulator/bbuddy-cal.app"
+app = "/Users/zbcjackson/Library/Developer/Xcode/DerivedData/bbuddy-akueffvhejofizbjibiennqkyqea/Build/Products/Debug-iphonesimulator/bbuddy-cal.app/"
 

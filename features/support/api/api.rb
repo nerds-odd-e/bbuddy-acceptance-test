@@ -6,6 +6,7 @@ class Api
   end
 
   def sign_up(user)
-    @connection.post('/users/signup', user)
+    # @connection.post('/users/signup', user)
+    @connection.post('/auth', user)
   end
 end

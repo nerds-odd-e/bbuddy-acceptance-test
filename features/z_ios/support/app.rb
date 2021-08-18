@@ -7,10 +7,12 @@ at_exit {
   $driver.driver_quit
 }
 
-Before {
-  $driver.launch_app
-}
+module App
+  def self.prepare
+    $driver.launch_app
+  end
 
-After {
-  $driver.close_app
-}
+  def self.stop
+    $driver.close_app
+  end
+end
